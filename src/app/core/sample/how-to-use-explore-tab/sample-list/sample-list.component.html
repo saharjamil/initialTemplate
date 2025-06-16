@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="p py-3">
+
+        <div class="table-responsive">
+            <table class="custom-table-style">
+                <thead>
+                    <tr>
+                        <th>ردیف</th>
+                        <th>کد رهگیری</th>
+                        <th>عنوان تیکت</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="spacer"></tr>
+                    <ng-container *ngFor="let item of ticketList; let i = index;">
+                        <tr>
+                            <td>{{i + 1}}</td>
+                            <td>{{item.TrackingCode}}</td>
+                            <td>{{item.Subject}}</td>
+                            <td><button class="btn btn-highlight-primary btn-sm" (click)="onTicketSelected(item)">جزئیات <i class="bi bi-chevron-left"></i></button></td>
+                        </tr>
+                        <tr class="spacer"></tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

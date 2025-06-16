@@ -1,0 +1,11 @@
+.icon-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--gray-light-80);
+    border-radius: var(--borderRadiusSm);
+    padding: var(--paddingSm);
+    gap: var(--gapSm);
+    color: var(--nutral-40);
+}

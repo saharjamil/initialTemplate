@@ -1,0 +1,880 @@
+//======================== Variables ==================================
+
+:root {
+  //Primary
+
+  --primary-5: #f6f6ff;
+  --primary-10: #e5e4ff;
+  --primary-20: #D1CFFF;
+  --primary-30: #BCB9FF;
+  --primary-40: #A8A4FF;
+  --primary-50: #938EFF;
+  --primary: #7F79FF;
+  --primary-70: #6C67D9;
+  --primary-80: #5955B3;
+  --primary-90: #46438C;
+  --primary-100: #333066;
+  --onPrimary: #fff;
+  --primaryLight: var(--primary-5);
+  --onPrimaryLight: var(--nutral-60);
+  --primaryHover: var(--primary-70);
+  --onPrimaryHover: #fff;
+  --primaryActive: var(--primary-80);
+  --onPrimaryActive: #fff;
+
+
+  //Secondary
+  --secondary-5: #fef9f0;
+  --secondary-10: #fdf2e0;
+  --secondary-20: #FEE1B4;
+  --secondary-30: #FDCC82;
+  --secondary-40: #FBB74D;
+  --secondary: #faa719;
+  --secondary-60: #FA9819;
+  --secondary-70: #F88E00;
+  --secondary-80: #F37E00;
+  --secondary-90: #EC6E00;
+  --secondary-100: #E45401;
+  --onSecondary: #fff;
+  --secondaryHover: var(--secondary-70);
+  --onSecondaryHover: #fff;
+  --secondaryActive: var(--secondary-80);
+  --onSecondaryActive: #fff;
+  --secondaryLight: var(--secondary-5);
+  --onSecondaryLight: var(--nutral-60);
+
+  //Error
+  --error-5: #fcecec;
+  --error-10: #f8d8d8;
+  --error-20: #F3B8B8;
+  --error-30: #EE9999;
+  --error-40: #E97979;
+  --error-50: #E35A5A;
+  --error: rgb(222, 58, 58);
+  --error-70: #BD3131;
+  --error-80: #9B2929;
+  --error-90: #7A2020;
+  --error-100: #591717;
+  --onError: #fff;
+  --errorHover: var(--error-70);
+  --onErrorHover: #fff;
+  --errorActive: var(--error-80);
+  --onErrorActive: #fff;
+  --errorLight: var(--error-5);
+  --onErrorLight: var(--nutral-60);
+  //Success
+  --success-5: #eef7f2;
+  --success-10: #E0F5E5;
+  --success-20: #C0E8C8;
+  --success-30: #9AD6A6;
+  --success-40: #71C783;
+  --success-50: #54BC6C;
+  --success: #28a148;
+  --success-70: #219341;
+  --success-80: #148237;
+  --success-90: #077D33;
+  --success-100: #01521e;
+  --onSuccess: #fff;
+  --successHover: var(--success-70);
+  --onSuccessHover:#fff;
+  --successActive:var(--success-80);
+  --onSuccessActive:#fff;
+  --successLight:var(--success-5);
+  --onSuccessLight:var(--nutral-60);
+
+  //Info
+  --info-5:  #f4f7fe;
+  --info-10: #e6eeff;
+  --info-20: #B1C7F8; 
+  --info-30: #8EAEF5;
+  --info-40: #6B95F1;
+  --info-50: #487CEE;
+  --info: #2563eb;
+  --info-70: #1F54C8;
+  --info-80: #1A45A5;
+  --info-90: #143681;
+  --info-100: #0F285E;
+  --onInfo: #fff;
+  --infoHover: var(--info-70);
+  --onInfoHover: #fff;
+  --infoActive: var(--info-80);
+  --onInfoActive: #fff;
+  --infoLight: var(--info-5);
+  --onInfoLight: var(--nutral-60);
+
+  //Warning
+  --warning-5:#fffdf5;
+  --warning-10: #FFF6D6;
+  --warning-20: #FFEFB6;
+  --warning-30: #FFE895;
+  --warning-40: #FFE074;
+  --warning-50: #FFD954;
+  --warning: rgb(255, 210, 51);
+  --warning-70: #ecc330; //TODO :: isEdited
+  --warning-80: #e4bc2e; //TODO :: isEdited
+  --warning-90: #dbb52c; //TODO :: isEdited
+  --warning-100: #d1ad2c; //TODO :: isEdited
+  --onWarning: var(--nutral-60);
+  --warningHover: var(--warning-70);
+  --onWarningHover: var(--nutral-60);
+  --warningActive: var(--warning-80);
+  --onWarningActive: var(--nutral-60);
+  --warningLight: var(--warning-5);
+  --onWarningLight: var(--nutral-60);
+
+
+  //GrayLight
+  --gray-light-10: #FAFAFA;
+  --gray-light-20: #F9F9F9;
+  --gray-light-30: #F7F7F7;
+  --gray-light-40: #F0F0F0;
+  --gray-light-50: #EEEEEE;
+  --gray-light-60: #EDEDED;
+  --gray-light-70: #EBEBEB;
+  --gray-light-80: #E7E7E7;
+  --gray-light-90: #DFDFDF;
+  --gray-light-100: #D9D9D9;
+  //Nutral
+  --nutral-10: #D2D2D2;
+  --nutral-20: #ADADAD;
+  --nutral-30: #898989;
+  --nutral-40: #656565;
+  --nutral-50: #404040;
+  --nutral-60: #1C1C1C;
+  --nutral-70: #181818;
+  --nutral-80: #141414;
+  --nutral-90: #0F0F0F;
+  --nutral-100: #0B0B0B;
+  //Icon
+  --icon-light: #FFFFFF;
+  --icon-dark: #4E4E4E;
+  --icon-gray: #ADADAD;
+
+  //Text
+  --page-title: #0F0F0F;
+  --section-title: #141414;
+  --card-title: #141414;
+  --body-text: #404040;
+  --form-label: #404040;
+  --primary-button-dark: #141414;
+  --primary-button-light: #FFFFFF;
+  --muted-text: #ADADAD;
+  --helper-text-main-button: #656565;
+  --error-message: #DE3A3A;
+  --link: #006FFF;
+  --placeholder: #cfcfcf;
+
+
+  --surface: #fff;
+  --onSurface: #161616;
+  --disabled: #E0E0E0;
+  --onDisabled: #A8A8A8;
+
+  --borderRadiusXXs: 4px;
+  --borderRadiusXs: 6px;
+  --borderRadiusSm: 8px;
+  --borderRadiusMd: 12px;
+  --borderRadiusLg: 16px;
+  --borderRadiusXL: 20px;
+  --borderRaisusXXL: 24px;
+
+  --paddingXXs: 0.15rem;
+  --paddingXs: 0.25rem;
+  --paddingSm: 0.5rem;
+  --paddingMd: 0.75rem;
+  --paddingLg: 1rem;
+  --paddingXL: 1.25rem;
+  --paddingXXL: 1.5rem;
+
+  --marginXXs: 0.15rem;
+  --marginXs: 0.25rem;
+  --marginSm: 0.5rem;
+  --marginMd: 0.75rem;
+  --marginLg: 1rem;
+  --marginXL: 1.25rem;
+  --marginXXL: 1.5rem;
+
+  --gapXs:0.25rem;
+  --gapSm:0.5rem;
+  --gapMd:0.75rem;
+  --gapLg:1rem;
+  --gapXL:1.25rem;
+  --gapXXL:1.5rem;
+
+  --transition: all ease 0.3s;
+
+  --svg-stroke-color: var(--primary);
+  --svg-icon-size: 24;
+  --svg-icon-width: 24;
+  --svg-icon-height: 24;
+
+}
+
+//======================== TypographyClasses ==================================
+
+.display-large {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 3rem;
+  letter-spacing: 0.00563rem;
+}
+
+.display-medium {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.625rem;
+}
+
+.display-small {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 2.5rem;
+}
+
+.headline-large {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 0%;
+}
+
+.headline-medium {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+}
+
+.headline-small {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.625rem;
+}
+
+.title-large {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+}
+
+.title-medium {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  /* 133.333% */
+  letter-spacing: 0.01125rem;
+}
+
+.title-small {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  /* 142.857% */
+  letter-spacing: 0.01313rem;
+}
+
+.label-large {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  /* 150% */
+  letter-spacing: 0.005rem;
+}
+
+.label-medium {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  /* 142.857% */
+  letter-spacing: 0.00438rem;
+}
+
+.label-small {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.125rem;
+  /* 150% */
+  letter-spacing: 0.00375rem;
+}
+
+.body-large {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  /* 150% */
+  letter-spacing: 0.005rem;
+}
+
+.body-medium {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.375rem;
+  /* 157.143% */
+  letter-spacing: 0.00438rem;
+}
+
+.body-small {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  /* 150% */
+  letter-spacing: 0.003rem;
+}
+
+//======================== ButtonSizes ==================================
+
+.btn-xs {
+  border-radius: var(--borderRadiusSm);
+  padding: var(--paddingXs) var(--paddingMd);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.2;
+
+}
+
+.btn-sm {
+  border-radius: var(--borderRadiusMd);
+  padding: var(--paddingSm) var(--paddingXL);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.btn-md {
+  border-radius: var(--borderRadiusLg);
+  padding: var(--paddingMd) var(--paddingXL);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.btn-lg {
+  border-radius: var(--borderRadiusLg);
+  padding: var(--paddingLg) var(--paddingXL);
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.btn-xl {
+  border-radius: var(--borderRadiusXL);
+  padding: var(--paddingXL) var(--paddingXXL);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+//======================== ButtonColors ==================================
+
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary) !important;
+  color: var(--onPrimary);
+
+  &:hover {
+    background-color: var(--primaryHover);
+    border-color: var(--primaryHover);
+    color: var(--onPrimaryHover);
+  }
+
+  &:active,
+  &:focus {
+    background-color: var(--primaryActive) !important;
+    border-color: var(--primaryActive) !important;
+    color: var(--onPrimaryActive) !important;
+  }
+}
+
+.btn-outline-primary {
+  border-color: var(--primary) !important;
+  color: var(--nutral-60);
+  background-color: transparent;
+
+  &:hover {
+    border-color: var(--primaryHover) !important;
+    color: var(--primary);
+    background-color: var(--primaryLight) !important;
+  }
+
+  &:active,
+  &:focus {
+    border-color: var(--primaryActive) !important;
+    color: var(--primary) !important;
+    background-color: var(--primaryLight) !important;
+
+  }
+}
+.btn-highlight-primary {
+  background-color: var(--primary-5);
+  border-color: var(--primary-30) !important;
+  color: var(--primary);
+
+  &:hover {
+    background-color: var(--primary-10) !important;
+    color: var(--primary);
+  }
+
+  &:active,
+  &:focus {
+    color: var(--primary) !important;
+    background-color: var(--primary-10) !important;
+
+  }
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  border-color: var(--secondary) !important;
+  color: var(--onSecondary);
+
+  &:hover {
+    background-color: var(--secondaryHover);
+    border-color: var(--secondaryHover) !important;
+    color: var(--onSecondaryHover);
+  }
+
+  &:active,
+  &:focus {
+    background-color: var(--secondaryActive) !important;
+    border-color: var(--secondaryActive) !important;
+    color: var(--onSecondaryActive);
+  }
+
+}
+
+.btn-outline-secondary {
+  border-color: var(--secondary) !important;
+  color: var(--nutral-60);
+
+  &:hover {
+    background-color: var(--secondaryLight);
+    border-color: var(--secondaryHover);
+    color: var(--onSecondaryLight);
+  }
+
+  &:active,
+  &:focus {
+    background-color: var(--secondaryLight) !important;
+    border-color: var(--secondaryActive) !important;
+    color: var(--onSecondaryLight) !important;
+  }
+
+}
+.btn-highlight-secondary {
+  background-color: var(--secondary-5);
+  border-color: var(--secondary-30) !important;
+  color: var(--secondary);
+
+  &:hover {
+    background-color: var(--secondary-10) !important;
+    color: var(--secondary);
+  }
+
+  &:active,
+  &:focus {
+    color: var(--secondary) !important;
+    background-color: var(--secondary-10) !important;
+
+  }
+}
+.btn-info {
+  background-color: var(--info) !important;
+  border-color: var(--info) !important;
+  color: var(--onInfo);
+
+  &:hover {
+    background-color: var(--infoHover) !important;
+    border-color: var(--infoHover) !important;
+    color: var(--onInfoHover) !important;
+  }
+
+  &:active,
+  &:focus {
+    background-color: var(--infoActive) !important;
+    border-color: var(--infoActive) !important;
+    color: var(--onInfoActive) !important;
+  }
+}
+
+.btn-outline-info {
+  border-color: var(--info) !important;
+  color: var(--nutral-60) !important;
+  background-color: transparent;
+
+  &:hover {
+    border-color: var(--infoHover) !important;
+    color: var(--onInfoLight) !important;
+    background-color: var(--infoLight) !important;
+  }
+
+  &:active,
+  &:focus {
+    border-color: var(--infoActive) !important;
+    color: var(--onInfoLight) !important;
+    background-color: var(--infoLight) !important;
+
+  }
+}
+.btn-highlight-info {
+  background-color: var(--info-5);
+  border-color: var(--info-30) !important;
+  color: var(--info);
+
+  &:hover {
+    background-color: var(--info-10) !important;
+    color: var(--info);
+  }
+
+  &:active,
+  &:focus {
+    color: var(--info) !important;
+    background-color: var(--info-10) !important;
+
+  }
+}
+.btn-error {
+  background-color: var(--error) !important;
+  border-color: var(--error) !important;
+  color: var(--onError);
+
+  &:hover {
+    background-color: var(--errorHover) !important;
+    border-color: var(--errorHover) !important;
+    color: var(--onErrorHover) !important;
+  }
+
+  &:active,
+  &:focus {
+    background-color: var(--errorActive) !important;
+    border-color: var(--errorActive) !important;
+    color: var(--onErrorActive) !important;
+  }
+}
+.btn-highlight-error {
+  background-color: var(--error-5);
+  border-color: var(--error-30) !important;
+  color: var(--error);
+
+  &:hover {
+    background-color: var(--error-10) !important;
+    color: var(--error);
+  }
+
+  &:active,
+  &:focus {
+    color: var(--error) !important;
+    background-color: var(--error-10) !important;
+
+  }
+}
+
+.btn-outline-error {
+  border-color: var(--error) !important;
+  color: var(--nutral-60) !important;
+  background-color: transparent;
+
+  &:hover {
+    border-color: var(--errorHover) !important;
+    color: var(--onErrorLight) !important;
+    background-color: var(--errorLight) !important;
+  }
+
+  &:active,
+  &:focus {
+    border-color: var(--errorActive) !important;
+    color: var(--onErrorLight) !important;
+    background-color: var(--errorLight) !important;
+
+  }
+}
+
+.btn-warning {
+  background-color: var(--warning) !important;
+  border-color: var(--warning) !important;
+  color: var(--onWarning);
+
+  &:hover {
+    background-color: var(--warningHover) !important;
+    border-color: var(--warningHover) !important;
+    color: var(--onWarningHover) !important;
+  }
+
+  &:active,
+  &:focus {
+    background-color: var(--warningActive) !important;
+    border-color: var(--warningActive) !important;
+    color: var(--onWarningActive) !important;
+  }
+}
+
+.btn-outline-warning {
+  border-color: var(--warning) !important;
+  color: var(--nutral-60) !important;
+  background-color: transparent;
+
+  &:hover {
+    border-color: var(--warningHover) !important;
+    color: var(--onWarningLight) !important;
+    background-color: var(--warningLight) !important;
+  }
+
+  &:active,
+  &:focus {
+    border-color: var(--warningActive) !important;
+    color: var(--onWarningLight) !important;
+    background-color: var(--warningLight) !important;
+
+  }
+}
+.btn-highlight-warning {
+  background-color: var(--warning-5);
+  border-color: var(--warning-30) !important;
+  color: var(--warning-100);
+
+  &:hover {
+    background-color: var(--warning-10) !important;
+    color: var(--warning-100);
+  }
+
+  &:active,
+  &:focus {
+    color: var(--warning-100) !important;
+    background-color: var(--warning-10) !important;
+  }
+}
+
+.btn-success {
+  background-color: var(--success) !important;
+  border-color: var(--success) !important;
+  color: var(--onSuccess);
+
+  &:hover {
+    background-color: var(--successHover) !important;
+    border-color: var(--successHover) !important;
+    color: var(--onSuccessHover) !important;
+  }
+
+  &:active,
+  &:focus {
+    background-color: var(--successActive) !important;
+    border-color: var(--successActive) !important;
+    color: var(--onSuccessActive) !important;
+  }
+}
+
+.btn-outline-success {
+  border-color: var(--success) !important;
+  color: var(--nutral-60) !important;
+  background-color: transparent;
+
+  &:hover {
+    border-color: var(--successHover) !important;
+    color: var(--onSuccessLight) !important;
+    background-color: var(--successLight) !important;
+  }
+
+  &:active,
+  &:focus {
+    border-color: var(--successActive) !important;
+    color: var(--onSuccessLight) !important;
+    background-color: var(--successLight) !important;
+
+  }
+}
+.btn-highlight-success {
+  background-color: var(--success-5);
+  border-color: var(--success-30) !important;
+  color: var(--success);
+
+  &:hover {
+    background-color: var(--success-10) !important;
+    color: var(--success);
+  }
+
+  &:active,
+  &:focus {
+    color: var(--success) !important;
+    background-color: var(--success-10) !important;
+
+  }
+}
+
+//======================== BadgeSizes ==================================
+.badge-xs{
+  border-radius: var(--borderRadiusMd);
+  padding: var(--paddingXs) var(--paddingSm);
+  @extend .body-small;
+}
+.badge-sm{
+  border-radius: var(--borderRadiusMd);
+  padding: var(--paddingXs) var(--paddingMd);
+  @extend .body-small;
+}
+.badge-md{
+  border-radius: var(--borderRadiusLg);
+  padding: var(--paddingXs) var(--paddingLg);
+  @extend .body-medium;
+}
+.badge-lg{
+  border-radius: var(--borderRadiusLg);
+  padding: var(--paddingXs) var(--paddingLg);
+  @extend .body-large;
+}
+.badge-xl{
+  border-radius: var(--borderRadiusXL);
+  padding: var(--paddingSm) var(--paddingXL);
+  @extend .body-large;
+}
+//======================== BadgeColors ==================================
+.badge-primary {
+  background-color: var(--primary);
+  color: var(--onPrimary);
+}
+
+.badge-highlight-primary {
+  background-color: var(--primaryLight);
+  color: var(--primary);
+}
+
+.badge-highlight-outline-primary {
+  background-color: var(--primaryLight);
+  border-color: var(--primary-20) !important;
+  color: var(--primary);
+}
+
+.badge-secondary {
+  background-color: var(--secondary);
+  color: var(--onSecondary);
+}
+
+.badge-highlight-secondary {
+  background-color: var(--secondaryLight);
+  color: var(--secondary);
+}
+
+.badge-highlight-outline-secondary {
+  background-color: var(--secondaryLight);
+  border-color: var(--secondary-20) !important;
+  color: var(--secondary);
+}
+
+.badge-info {
+  background-color: var(--info);
+  color: var(--onInfo);
+}
+
+.badge-highlight-info {
+  background-color: var(--infoLight);
+  color: var(--info);
+}
+
+.badge-highlight-outline-info {
+  background-color: var(--infoLight);
+  border-color: var(--info-20) !important;
+  color: var(--info);
+}
+
+.badge-success {
+  background-color: var(--success);
+  color: var(--onSuccess);
+}
+
+.badge-highlight-success {
+  background-color: var(--successLight);
+  color: var(--success);
+}
+
+.badge-highlight-outline-success {
+  background-color: var(--successLight);
+  border-color: var(--success-20) !important;
+  color: var(--success);
+}
+
+.badge-error {
+  background-color: var(--error);
+  color: var(--onError);
+}
+
+.badge-highlight-error {
+  background-color: var(--errorLight);
+  color: var(--error);
+}
+
+.badge-highlight-outline-error {
+  background-color: var(--errorLight);
+  border-color: var(--error-20) !important;
+  color: var(--error);
+}
+
+.badge-warning {
+  background-color: var(--warning);
+  color: var(--onWarning);
+}
+
+.badge-highlight-warning {
+  background-color: var(--warningLight);
+  color: var(--warning-100);
+}
+
+.badge-highlight-outline-warning {
+  background-color: var(--warningLight);
+  border-color: var(--warning-50) !important;
+  color: var(--warning-100);
+}
+
+//======================== Disabled ==================================
+
+.btn-disabled {
+  background-color: var(--disabled);
+  color: var(--onDisabled);
+}
+
+.btn-outline-disabled {
+  border-color: var(--disabled);
+  color: var(--onDisabled);
+}
+
+
+
+
+
+//======================== GeneralClasses ==================================
+
+
+.badge{
+  border:1px solid transparent;
+}
+.btn {
+  border: 1px solid;
+  transition: var(--transition);
+  box-shadow: none;
+  outline: none;
+  font-family: inherit;
+}
+
+
+// $theme :(
+//     "primary": var(--primary),
+//     "onPrimary": var(--onPrimary),
+//     "primaryLight":var(--primaryLight),
+//     "onPrimaryLight":var(--onPrimaryLight),
+//     "primaryHover":var(--primaryHover),
+//     "onPrimaryHover":var(--onPrimaryHover),
+//     "primaryActive":var(--primaryActive),
+//     "onPrimaryActive":var(--onPrimaryActive),
+//     "primaryDisabled":var(--primaryDisabled),
+//     "onPrimaryDisabled":var(--onPrimaryDisabled),
+//     "primaryContainer":var(--primaryContainer),
+//     "onPrimaryContainer":var(----onPrimaryContainer),
+// );
+
+
+// @each $text-name, $text-color in $theme{
+//     .text-#{$text-name} {
+//       color: $text-color !important;
+//     }
+// }
+// @each $background-name, $background-color in $theme{
+//     .background-#{$background-name} {
+//       background-color: $background-color !important;
+//     }
+// }
