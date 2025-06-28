@@ -11,16 +11,16 @@
                     <div class="greg-date" *ngIf="showGregDate"><span>{{days[0].GregMonthName}}</span> <span *ngIf="days[0].GregYearKey != days[days.length - 1].GregYearKey">{{days[0].GregYearKey}}</span> - <span>{{days[days.length - 1].GregMonthName}}</span> <span>{{days[days.length - 1].GregYearKey}}</span></div>
                 </div>
                 <div class="trigger" [class.up]="showBody" *ngIf="showToggleCalendar" (click)="onToggleShowBodySelected()">
-                    <app-svg-icon [config]="setting.returnSvgConfig('altArrowDown')"></app-svg-icon>
+                    <app-svg-icon [name]="'altArrowDown'"></app-svg-icon>
                 </div>
             </ng-container>
         </div>
        
         <div class="filter-section" *ngIf="showFilterSection" [@slideDown]>
             <div class="filter-head">
-                <div class="head-title"><app-svg-icon class="me-1" [config]="setting.returnSvgConfig('calendarMinimalistic',16)"></app-svg-icon>فیلتر بر اساس سال و ماه</div>
+                <div class="head-title"><app-svg-icon class="me-1" [name]="'calendarMinimalistic'" [size]="16"></app-svg-icon>فیلتر بر اساس سال و ماه</div>
                 <div class="head-close-btn" (click)="cancleFilter()">
-                    <app-svg-icon [config]="setting.returnSvgConfig('closeCircle',16)"></app-svg-icon>
+                    <app-svg-icon [name]="'close'" [size]="20"></app-svg-icon>
                 </div>
             </div>
             <div class="filter-content">
@@ -38,8 +38,8 @@
                     <div class="title">
                         <div>انتخاب سال:</div>
                         <div class="year-page-navigation">
-                            <span role="button" class="previous-year-page" [class.disabled]="yearPageNumber == 1" (click)="loadPreviousYearPage()"><app-svg-icon [config]="setting.returnSvgConfig('altArrowRight',16)"></app-svg-icon>صفحه قبلی </span>
-                            <span role="button" class="next-year-page" [class.disabled]="yearPageNumber>=yearTotalPageCount" (click)="loadNextYearPage()">صفحه بعدی <app-svg-icon [config]="setting.returnSvgConfig('altArrowLeft',16)"></app-svg-icon></span>
+                            <span role="button" class="previous-year-page" [class.disabled]="yearPageNumber == 1" (click)="loadPreviousYearPage()"><app-svg-icon [name]="'altArrowRight'" [size]="16"></app-svg-icon>صفحه قبلی </span>
+                            <span role="button" class="next-year-page" [class.disabled]="yearPageNumber>=yearTotalPageCount" (click)="loadNextYearPage()">صفحه بعدی <app-svg-icon [name]="'altArrowLeft'" [size]="16"></app-svg-icon></span>
                         </div>
                     </div>
                     <div class="year-navigation">
@@ -50,24 +50,24 @@
                 </div>
             </div>
             <div class="filter-footer">
-                <div class="action-button" (click)="cancleFilter()"><app-svg-icon class="me-1" [config]="setting.returnSvgConfig('closeCircle',16)"></app-svg-icon>انصراف</div>
-                <div class="action-button" (click)="applyFilter()"><app-svg-icon class="me-1" [config]="setting.returnSvgConfig('ckeckCircle',16)"></app-svg-icon>تایید</div>
+                <div class="action-button" (click)="cancleFilter()"><app-svg-icon class="me-1" [name]="'close'" [size]="20"></app-svg-icon>انصراف</div>
+                <div class="action-button" (click)="applyFilter()"><app-svg-icon class="me-1" [name]="'ckeckCircle'" [size]="16"></app-svg-icon>تایید</div>
             </div>
         </div>
     </div>
     <div *ngIf="showBody" [@slideDown]>
         <div class="navigation-btns">
             <div class="refresh-calendar" (click)="refresh()">
-                <app-svg-icon [config]="setting.returnSvgConfig('refresh',20)"></app-svg-icon>
+                <app-svg-icon [name]="'refresh'" [size]="20"></app-svg-icon>
             </div>
             <div class="filter-sign" [class.active]="showFilterSection" (click)="openFilterSection()">
-                <app-svg-icon [config]="setting.returnSvgConfig('calendarSearch',20)"></app-svg-icon>
+                <app-svg-icon [name]="'calendarSearch'" [size]="20"></app-svg-icon>
             </div>
             <div class="previous-month" (click)="navigateToPreviousMonth()">
-                <app-svg-icon [config]="setting.returnSvgConfig('altArrowRight',20)"></app-svg-icon>
+                <app-svg-icon [name]="'altArrowRight'" [size]="20"></app-svg-icon>
             </div>
             <div class="next-month" (click)="navigateToNextMonth()">
-                <app-svg-icon [config]="setting.returnSvgConfig('altArrowLeft',20)"></app-svg-icon>
+                <app-svg-icon [name]="'altArrowLeft'" [size]="20"></app-svg-icon>
             </div>
         </div>
         <div class="head">

@@ -8,6 +8,8 @@ import { SvgIconConfigViewModel } from '../../../core/viewModels/SvgIconConfigVi
   styleUrl: './svg-icon.component.scss'
 })
 export class SvgIconComponent {
-  @Input() config: SvgIconConfigViewModel = new SvgIconConfigViewModel()
+  @Input() config: SvgIconConfigViewModel = new SvgIconConfigViewModel();
+  @Input() name: string = '';
+  @Input() size?: number = 24;
   @Input() icon: string = '';
 }

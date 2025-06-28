@@ -1,12 +1,12 @@
 <svg 
-  [attr.width]="config.Size" 
-  [attr.height]="config.Size" 
+  [attr.width]="size" 
+  [attr.height]="size" 
   fill="none" 
   stroke="none"
   stroke-width="0"
   class="p-0"
-  [style]="{'--svg-icon-size': config.Size}"
+  [style]="{'--svg-icon-size': size}"
   class="d-flex align-items-center">
-  <use [attr.href]="'assets/svgs/iconPack.svg#' + config.IconName"></use>
+  <use [attr.href]="'assets/svgs/iconPack.svg#' + name"></use>
 </svg>
 

@@ -69,28 +69,6 @@ export class SampleListComponent {
       "CreatorFullName": "مینا احمدی",
       "CreationDateTime": "1404/01/31 | 10:46:11",
     },
-    {
-      "ID": 4161,
-      "SectionTitle": "عضویت در سامانه",
-      "StatusTypeTitle": " اختتام با یادداشت",
-      "PriorityTypeTitle": "فوری",
-      "TicketTypeTitle": "ایجاد / ویرایش نام کاربری یا رمز عبور",
-      "Subject": "لورم ایپسوم متن",
-      "TrackingCode": "SPS1924167",
-      "CreatorFullName": "مینا احمدی",
-      "CreationDateTime": "1404/01/31 | 10:46:11",
-    },
-    {
-      "ID": 4162,
-      "SectionTitle": "عضویت در سامانه",
-      "StatusTypeTitle": " اختتام با یادداشت",
-      "PriorityTypeTitle": "فوری",
-      "TicketTypeTitle": "ایجاد / ویرایش نام کاربری یا رمز عبور",
-      "Subject": "لورم ایپسوم متن ساختگی",
-      "TrackingCode": "SPS1924167",
-      "CreatorFullName": "مینا احمدی",
-      "CreationDateTime": "1404/01/31 | 10:46:11",
-    },
   ];
   setting: AppSetting = new AppSetting();
   constructor(private tabsService: ExploreTabsService) { }

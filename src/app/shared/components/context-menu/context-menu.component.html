@@ -3,7 +3,7 @@
   <div class="context-menu">
     <ul>
       <li *ngFor="let item of menuItems" (click)="onMenuItemClick(item.action)">
-        <app-svg-icon class="me-1" *ngIf="item.icon" [config]="setting.returnSvgConfig(item.icon,20)"></app-svg-icon>
+        <app-svg-icon class="me-1" *ngIf="item.icon" [name]="item.icon" [size]="20"></app-svg-icon>
         {{ item.label }}
       </li>
     </ul>
