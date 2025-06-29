@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AppSetting } from '../../resources/AppSetting';
-import { TabInterface } from '../../interfaces/tabInterface';
+import { AppSetting } from '../../../core/resources/AppSetting';
+import { TabInterface } from '../../../core/interfaces/tabInterface';
 import { SampleListComponent } from './sample-list/sample-list.component';
 @Component({
   selector: 'app-how-to-use-explore-tab',

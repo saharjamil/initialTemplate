@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
-import { AppSetting } from '../resources/AppSetting';
-import { CalendarData } from '../data/calendarData';
-import { expandablePanelPostionInterface } from '../interfaces/expandablePanelPositionInterface';
-import { ContextMenuItemInterface } from '../interfaces/contextMenuItemInterface';
+import { AppSetting } from '../../core/resources/AppSetting';
+import { CalendarData } from '../../core/data/calendarData';
+import { expandablePanelPostionInterface } from '../../core/interfaces/expandablePanelPositionInterface';
+import { ContextMenuItemInterface } from '../../core/interfaces/contextMenuItemInterface';
 @Component({
   selector: 'app-sample',
   standalone:false,
@@ -33,7 +33,7 @@ export class SampleComponent {
     {
       label: 'لورم ایپسوم متن ساختگی',
       action: () => this.fireWarningSwalSecondaryButton(),
-      icon: 'pallete2'
+      icon: 'palette2'
       }];
   firstContextMenuPosition: expandablePanelPostionInterface = {}
   firstContextMenuIsShow: boolean = false;
@@ -82,7 +82,7 @@ export class SampleComponent {
 
   
   onFirstContextMenuRightClick(event: MouseEvent) {
-    this.closeSecondContextMenu();
+    this.closeAllContextMenus();
     event.preventDefault(); // Prevent default right-click menu
     const element = event.target as HTMLElement;
     const elementRect = element.getBoundingClientRect();
@@ -93,7 +93,7 @@ export class SampleComponent {
 
   }
   onSecondContextMenuRightClick(event: MouseEvent) {
-    this.closeFirstContextMenu();
+    this.closeAllContextMenus();
     event.preventDefault(); // Prevent default right-click menu
     const element = event.target as HTMLElement;
     const elementRect = element.getBoundingClientRect();
@@ -104,20 +104,20 @@ export class SampleComponent {
 
   }
   onThirdContextMenuRightClick(event: MouseEvent) {
-    this.closeFirstContextMenu();
+    this.closeAllContextMenus();
     event.preventDefault(); // Prevent default right-click menu
     const element = event.target as HTMLElement;
     const elementRect = element.getBoundingClientRect();
     this.thirdContextMenuPosition.top = elementRect.top + elementRect.height + 5;
-    this.thirdContextMenuPosition.right = window.innerWidth - elementRect.right;
+    this.thirdContextMenuPosition.right = window.innerWidth - elementRect.right - 16;
     this.thirdContextMenuIsShow = true;
   }
   onFourthContextMenuRightClick(event: MouseEvent) {
-    this.closeFirstContextMenu();
+    this.closeAllContextMenus();
     event.preventDefault(); // Prevent default right-click menu
     const element = event.target as HTMLElement;
     const elementRect = element.getBoundingClientRect();
-    this.fourthContextMenuPosition.bottom = elementRect.top - elementRect.height - 5;
+    this.fourthContextMenuPosition.bottom = window.innerHeight - elementRect.top + 5;
     this.fourthContextMenuPosition.left = elementRect.left;
     this.fourthContextMenuIsShow = true;
   }
@@ -134,6 +134,12 @@ export class SampleComponent {
     this.fourthContextMenuIsShow = false;
   }
 
+  closeAllContextMenus() {
+    this.closeFirstContextMenu();
+    this.closeSecondContextMenu();
+    this.closeThirdContextMenu();
+    this.closeFourthContextMenu();
+  }
   usernameNgModel: string = '';
   submitForm(form:NgForm) {
     if (form.valid) {

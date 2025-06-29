@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AppSetting } from '../../../resources/AppSetting';
+import { AppSetting } from '../../../../core/resources/AppSetting';
 import { ExploreTabsService } from '../../../../shared/services/explore-tabs.service';
-import { TabInterface } from '../../../interfaces/tabInterface';
+import { TabInterface } from '../../../../core/interfaces/tabInterface';
 import { SampleViewModel } from '../sampleViewModels/SampleViewModel';
 import { SampleDetailComponent } from '../sample-detail/sample-detail.component';
 
