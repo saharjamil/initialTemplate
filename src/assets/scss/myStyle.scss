@@ -938,7 +938,7 @@ table.custom-table-style {
         justify-content: space-between;
         padding: var(--paddingSm) var(--paddingMd);
         border-radius: var(--borderRadiusMd);
-        border: 1px solid var(--primary-20);
+        background-color: var(--primaryLight);
         gap: var(--gapSm);
         .icon {
             display: flex;

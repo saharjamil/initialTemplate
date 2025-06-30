@@ -6,6 +6,7 @@ import { expandablePanelPostionInterface } from '../../core/interfaces/expandabl
 import { ContextMenuItemInterface } from '../../core/interfaces/contextMenuItemInterface';
 import { FileUploader } from 'ng2-file-upload';
 import { HelperService } from '../../shared/services/helper.service';
+import { CalendarFilterDateViewModel } from '../../shared/components/persian-calendar/calendarViewModels/CalendarFilterDateViewModel';
 const URL = "";
 @Component({
   selector: 'app-sample',
@@ -159,6 +160,16 @@ export class SampleComponent {
     console.log(this.uploader.queue.forEach(item => {
       item.file.type
     }))
+  }
+
+  calendarLoadingData: boolean = false;
+  onNavigateToDate(event: CalendarFilterDateViewModel) {
+    //related apis for getting dates comes here
+    this.calendarLoadingData = true;
+    console.log(event.Year, event.Month)
+    setTimeout(() => {
+      this.calendarLoadingData = false;
+    },1000)
   }
 
   
