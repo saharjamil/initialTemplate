@@ -25,17 +25,6 @@ body{
      display: flex;
     justify-content: center;
 }
-.btn{
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: var(--gapSm);
-    &.disabled,&:disabled{
-        background-color: var(--primaryDisabled);
-        color: var(--onPrimaryDisabled);
-       
-    }
-}
 input,textarea{
     resize: none;
     &::placeholder{
@@ -63,8 +52,6 @@ input,textarea{
         padding: var(--paddingSm);
     }
 }
-
-
 .form-group{
     @extend .flex-align-items-center;
     border: 1px solid var(--gray-light-80);
@@ -203,7 +190,6 @@ input,textarea{
         margin-top: var(--marginMd);
     }
 }
-
 .card {
   display: flex;
   flex-direction: column;
@@ -237,6 +223,9 @@ input,textarea{
 }
 path,circle{
     transition: var(--transition);
+}
+i{
+    line-height: 0;
 }
 // ********** custom ngSelect
 .ng-select.custom-select-style{
@@ -883,8 +872,8 @@ table.custom-table-style {
         }
         &:after{
             content: '';
-            width: 80%;
-            height: 80%;
+            width: calc(100% - 4px);
+            height: calc(100% - 4px);
             background-color: var(--primary);
             border-radius: 50%;
         }
@@ -893,10 +882,102 @@ table.custom-table-style {
         .custom-radio-style{
 
             &:after{
-                width: 70%;
-                height: 70%;
+                width:calc(100% - 4px);
+                height: calc(100% - 4px);
             }
         }
+    }
+}
+// ********** custom-text-editor
+.custom-text-editor{
+    .angular-editor-toolbar{
+        border-radius: var(--borderRadiusXs);
+        background-color: var(--gray-light-20) !important;
+        .angular-editor-button{
+            &:hover{
+                background-color: var(--primaryLight) !important;
+            }
+            &.active{
+                background-color: var(--primary-10) !important;
+            }
+        }
+    }
+    .angular-editor-textarea{
+        border-radius: var(--borderRadiusMd) !important;
+        resize: none !important;
+        &:focus,&:active{
+            outline: none !important;
+            box-shadow: none !important;
+            border-color: var(--primary-30) !important;
+        }
+    }
+}
+// ********** custom-file-input
+.custom-file-input {
+  position: absolute;
+  // z-index: 2;
+  width: unset;
+  height: unset;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  cursor: pointer;
+  visibility: hidden;
+}
+.custom-file-list{
+    @extend .flex-align-items-center;
+    margin-top: var(--marginMd);
+    flex-wrap: wrap;
+    gap: var(--gapSm) var(--gapXs);
+    .item{
+        @extend .flex-align-items-center;
+        justify-content: space-between;
+        padding: var(--paddingSm) var(--paddingMd);
+        border-radius: var(--borderRadiusMd);
+        border: 1px solid var(--primary-20);
+        gap: var(--gapSm);
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 5px;
+            font-size: 1.2rem;
+            flex: 0 0 30px;
+            background-color: var(--primary-10);
+            aspect-ratio: 1;
+            border-radius: 50%;
+        }
+        .name {
+            flex: 1 1 auto;
+            width: 60%;
+                span {
+                    display: block;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: 100px;
+                }
+        }
+
+        .remove-btn,.download-btn {
+            border-right: 1px solid var(--bs-gray-300);
+            padding-right: 10px;
+            margin-right: 5px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            &:hover{
+                color: var(--primary);
+            }
+        }
+
     }
 }
 

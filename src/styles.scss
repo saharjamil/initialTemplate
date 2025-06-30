@@ -849,6 +849,15 @@
   box-shadow: none;
   outline: none;
   font-family: inherit;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gapXs);
+  &.disabled,&:disabled{
+      background-color: var(--primaryDisabled);
+      color: var(--onPrimaryDisabled);
+      
+  }
 }
 
 

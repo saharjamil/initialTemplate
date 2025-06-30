@@ -4,14 +4,20 @@ import { AppSetting } from '../../core/resources/AppSetting';
 import { CalendarData } from '../../core/data/calendarData';
 import { expandablePanelPostionInterface } from '../../core/interfaces/expandablePanelPositionInterface';
 import { ContextMenuItemInterface } from '../../core/interfaces/contextMenuItemInterface';
+import { FileUploader } from 'ng2-file-upload';
+import { HelperService } from '../../shared/services/helper.service';
+const URL = "";
 @Component({
   selector: 'app-sample',
   standalone:false,
   templateUrl: './sample.component.html',
   styleUrl: './sample.component.scss'
 })
+
 export class SampleComponent {
+  
   setting: AppSetting = new AppSetting();
+  uploader: FileUploader = new FileUploader({url:URL});
   calendarData: CalendarData = new CalendarData();
   isLoadingCalendarData: boolean = false;
   ngSelectData = [
@@ -43,6 +49,8 @@ export class SampleComponent {
   thirdContextMenuIsShow: boolean = false;
   fourthContextMenuPosition: expandablePanelPostionInterface = {}
   fourthContextMenuIsShow: boolean = false;
+
+  constructor(public helperService:HelperService){}
   fireSuccessSwalPrimaryButton() {
     this.setting.fireSwal('success','primary')
   }
@@ -146,4 +154,12 @@ export class SampleComponent {
       console.log('valid')
     }
   }
+
+  onFileSelect() {
+    console.log(this.uploader.queue.forEach(item => {
+      item.file.type
+    }))
+  }
+
+  
 }

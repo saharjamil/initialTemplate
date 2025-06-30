@@ -10,6 +10,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { FileUploadModule } from 'ng2-file-upload';
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
+import { HttpClientModule } from '@angular/common/http';
 //Components
 import { PersianCalendarComponent } from './components/persian-calendar/persian-calendar.component';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
@@ -36,6 +37,7 @@ import { RightClickDirective } from './directives/right-click.directive';
     CarouselModule,
     AngularEditorModule,
     FileUploadModule,
+    HttpClientModule,
     NgPersianDatepickerModule,
     SimplebarAngularModule,
     ClickOutsideDirective,
@@ -51,6 +53,7 @@ import { RightClickDirective } from './directives/right-click.directive';
     FileUploadModule,
     NgPersianDatepickerModule,
     SimplebarAngularModule,
+    HttpClientModule,
     ClickOutsideDirective,
     RightClickDirective,
     PersianCalendarComponent,
