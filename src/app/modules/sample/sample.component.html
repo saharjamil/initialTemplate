@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row g-2">
             <div class="col-12">
-                <div class="card mb-2">
+                <div class="card">
                     <div class="card-header">دکمه‌ها</div>
                     <div class="card-body">
                         <h6 class="card-title">دکمه اولیه</h6>
@@ -231,8 +231,8 @@
                     </div>
                 </div>               
             </div>
-            <div class="col-12">
-                <div class="card mb-2">
+            <div class="col-lg-9">
+                <div class="card">
                     <div class="card-header">نشان ها</div>
                     <div class="card-body">
                         <h6 class="card-title">نشان اولیه</h6>
@@ -460,8 +460,22 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-3">
+                <div class="card h-100" *blockUI="'blockUI'">
+                    <div class="card-header">BlockUI</div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center flex-wrap gap-2">
+                            <button class="btn btn-highlight-info btn-md" (click)="showBlockUI()">نمایش BlockUI با متن پیش فرض</button>
+                            <button class="btn btn-highlight-info btn-md" (click)="showBlockUI('در حال بروزرسانی ...')">نمایش BlockUI با متن دلخواه</button>
+                            <button class="btn btn-highlight-info btn-md" (click)="showCustomBlockUI()">نمایش BlockUI با قالب سفارشی سازی شده</button>
+                        </div>
+                        <div class="mt-3" style="height:300px" *blockUI="'customBlockUi';  template: customBlockUITemplate"></div>
+
+                    </div>
+                </div>
+            </div>
             <div class="col-lg-8">
-                <div class="card mb-2">
+                <div class="card">
                     <div class="card-header">پیغام</div>
                     <div class="card-body">
                         <p>جهت مشاهده پیغام بر روی دکمه‌های مرتبط کلیک کنید</p>
@@ -493,11 +507,14 @@
                             <button class="btn btn-highlight-warning btn-sm"
                                 (click)="fireWarningSwalWarningButton()">پیغام هشدار با دکمه هشدار</button>
                         </div>
+                        <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+                            <button class="btn btn-highlight-primary btn-sm" (click)="fireSuccessToast()">پیغام toast موفقیت آمیز</button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="card">
+                <div class="card h-100">
                     <div class="card-header">Context Menu</div>
                     <div class="card-body">
                         <p>جهت مشاهده منو راست کلیک کنید</p>
@@ -513,15 +530,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-10">
-                <div class="card mb-2">
+            <div class="col">
+                <div class="card">
                     <div class="card-header">تب اکسپلور</div>
                     <div class="card-body">
                         <app-how-to-use-explore-tab></app-how-to-use-explore-tab>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
+            <div class="col-auto">
                 <div class="card">
                     <div class="card-header">تقویم</div>
                     <div class="card-body">
@@ -533,7 +550,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <div class="card mb-2">
+                <div class="card">
                     <div class="card-header">فرم</div>
                     <div class="card-body">
                         <form #form="ngForm" (ngSubmit)="submitForm(form)">
@@ -1010,7 +1027,7 @@
                                 <span>minimizeSquare2</span>
                             </div>
                             <div class="icon-container">
-                                <app-svg-icon [name]="'maximizeSquare3'"[config]="setting.returnSvgConfig('')"></app-svg-icon>
+                                <app-svg-icon [name]="'maximizeSquare3'"></app-svg-icon>
                                 <span>maximizeSquare3</span>
                             </div>
                             <div class="icon-container">
@@ -1344,7 +1361,7 @@
                                 <span>pipette</span>
                             </div>
                             <div class="icon-container">
-                                <app-svg-icon [config]="setting.returnSvgConfig('alignLeft')"></app-svg-icon>
+                                <app-svg-icon [name]="'alignLeft'"></app-svg-icon>
                                 <span>alignLeft</span>
                             </div>
                             <div class="icon-container">
@@ -5808,3 +5825,11 @@
 <app-context-menu *ngIf="secondContextMenuIsShow" [position]="secondContextMenuPosition" [menuItems]="contextMenuItems" (closeMenu)="closeSecondContextMenu()"></app-context-menu>
 <app-context-menu *ngIf="thirdContextMenuIsShow" [position]="thirdContextMenuPosition" [menuItems]="contextMenuItems" (closeMenu)="closeThirdContextMenu()"></app-context-menu>
 <app-context-menu *ngIf="fourthContextMenuIsShow" [position]="fourthContextMenuPosition" [menuItems]="contextMenuItems" (closeMenu)="closeFourthContextMenu()"></app-context-menu>
+<ng-template #customBlockUITemplate>
+    <div class="custom-block-ui-template" >
+        <div class="block-ui-template">
+            <span class="loading"></span>
+             <p class="block-message mt-4">در حال بروزرسانی؛ شکیبا باشید ...</p>
+        </div>
+    </div>
+</ng-template>

@@ -11,12 +11,14 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { HttpClientModule } from '@angular/common/http';
+import { BlockUIModule } from 'ng-block-ui';
 //Components
 import { PersianCalendarComponent } from './components/persian-calendar/persian-calendar.component';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 import { ExploreTabComponent } from './components/explore-tab/explore-tab.component';
 import { ExpandablePanelComponent } from './components/expandable-panel/expandable-panel.component';
 import { ContextMenuComponent } from './components/context-menu/context-menu.component';
+import { BlockUiTemplateComponent } from './components/block-ui-template/block-ui-template.component';
 //Directives
 import { ClickOutsideDirective } from './directives/click-out-side.directive';
 import { RightClickDirective } from './directives/right-click.directive';
@@ -26,7 +28,7 @@ import { RightClickDirective } from './directives/right-click.directive';
     SvgIconComponent,
     ExploreTabComponent,
     ExpandablePanelComponent,
-    ContextMenuComponent
+    ContextMenuComponent,
   ],
   imports: [
     NgbModule,
@@ -38,6 +40,7 @@ import { RightClickDirective } from './directives/right-click.directive';
     AngularEditorModule,
     FileUploadModule,
     HttpClientModule,
+    BlockUIModule.forRoot({template: BlockUiTemplateComponent, message:'در حال پردازش؛ شکیبا باشید ...'}),
     NgPersianDatepickerModule,
     SimplebarAngularModule,
     ClickOutsideDirective,
@@ -54,13 +57,14 @@ import { RightClickDirective } from './directives/right-click.directive';
     NgPersianDatepickerModule,
     SimplebarAngularModule,
     HttpClientModule,
+    BlockUIModule,
     ClickOutsideDirective,
     RightClickDirective,
     PersianCalendarComponent,
     SvgIconComponent,
     ExpandablePanelComponent,
     ExploreTabComponent,
-    ContextMenuComponent
+    ContextMenuComponent,
   ],
   
 })

@@ -26,7 +26,7 @@
           <i class="bi {{tab.icon}} tab-icon" *ngIf="tab.icon"></i>
           <div class="tab-title">{{ tab.title }}</div>
         </div>
-        <div role="button" class="close-tab ms-2" *ngIf="tab.closable" (click)="tabsService.closeTab(key,tab.id,this.tabContentViewContainerRef)"><app-svg-icon [config]="setting.returnSvgConfig('close')"></app-svg-icon></div>
+        <div role="button" class="close-tab ms-2" *ngIf="tab.closable" (click)="tabsService.closeTab(key,tab.id,this.tabContentViewContainerRef)"><app-svg-icon [name]="'x'"></app-svg-icon></div>
       </div>
     </ng-container>
   </div>

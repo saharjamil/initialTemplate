@@ -111,11 +111,11 @@
             <input maxlength="1000" type="text" #Events="ngModel" [class.invalid]="editDayForm.submitted && Events.invalid" [required]="requestEditDay.IsHoliday" name="dayEvent" class="form-control" placeholder="توضیحات" [(ngModel)]="requestEditDay.Events" />
             <div class="action-buttons">
                 <button class="btn" type="button" (click)="closeEditForm()">
-                    <app-svg-icon [config]="setting.returnSvgConfig('x')"></app-svg-icon>
+                    <app-svg-icon [name]="'x'"></app-svg-icon>
                     انصراف
                 </button>
                 <button class="btn" type="submit" >
-                    <app-svg-icon [config]="setting.returnSvgConfig('checkRead')"></app-svg-icon>
+                    <app-svg-icon [name]="'checkRead'"></app-svg-icon>
                     تایید
                 </button>
             </div>

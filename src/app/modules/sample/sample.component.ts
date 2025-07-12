@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { AppSetting } from '../../core/resources/AppSetting';
 import { CalendarData } from '../../core/data/calendarData';
 import { expandablePanelPostionInterface } from '../../core/interfaces/expandablePanelPositionInterface';
@@ -50,43 +51,47 @@ export class SampleComponent {
   thirdContextMenuIsShow: boolean = false;
   fourthContextMenuPosition: expandablePanelPostionInterface = {}
   fourthContextMenuIsShow: boolean = false;
-
+  @BlockUI('blockUI') blockUI!: NgBlockUI;
+  @BlockUI('customBlockUi') customBlockUi!: NgBlockUI;
   constructor(public helperService:HelperService){}
   fireSuccessSwalPrimaryButton() {
-    this.setting.fireSwal('success','primary')
+    this.helperService.fireSwal('success','primary')
   }
   fireSuccessSwalSecondaryButton() {
-    this.setting.fireSwal('success','secondary')
+    this.helperService.fireSwal('success','secondary')
   }
   fireSuccessSwalSuccessButton() {
-    this.setting.fireSwal('success','success')
+    this.helperService.fireSwal('success','success')
   }
   fireSuccessSwalErrorButton() {
-    this.setting.fireSwal('success','error')
+    this.helperService.fireSwal('success','error')
   }
   fireSuccessSwalWarningButton() {
-    this.setting.fireSwal('success','warning')
+    this.helperService.fireSwal('success','warning')
   }
   fireSuccessSwalInfoButton() {
-    this.setting.fireSwal('success','info')
+    this.helperService.fireSwal('success','info')
   }
   fireWarningSwalPrimaryButton() {
-    this.setting.fireSwal('warning','primary')
+    this.helperService.fireSwal('warning','primary')
   }
   fireWarningSwalSecondaryButton() {
-    this.setting.fireSwal('warning','secondary')
+    this.helperService.fireSwal('warning','secondary')
   }
   fireWarningSwalSuccessButton() {
-    this.setting.fireSwal('warning','success')
+    this.helperService.fireSwal('warning','success')
   }
   fireWarningSwalErrorButton() {
-    this.setting.fireSwal('warning','error')
+    this.helperService.fireSwal('warning','error')
   }
   fireWarningSwalWarningButton() {
-    this.setting.fireSwal('warning','warning')
+    this.helperService.fireSwal('warning','warning')
   }
   fireWarningSwalInfoButton() {
-    this.setting.fireSwal('warning','info')
+    this.helperService.fireSwal('warning','info')
+  }
+  fireSuccessToast() {
+    this.helperService.fireToastSwal('عملیات با موفقیت انجام شد.')
   }
 
   
@@ -169,6 +174,20 @@ export class SampleComponent {
     console.log(event.Year, event.Month)
     setTimeout(() => {
       this.calendarLoadingData = false;
+    },1000)
+  }
+
+  showBlockUI(message?: string) {
+    this.blockUI.start(message);
+    setTimeout(() => {
+      this.blockUI.stop();
+    },1000)
+  }
+
+  showCustomBlockUI() {
+    this.customBlockUi.start();
+    setTimeout(() => {
+      this.customBlockUi.stop();
     },1000)
   }
 
