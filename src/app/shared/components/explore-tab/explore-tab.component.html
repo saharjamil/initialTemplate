@@ -23,10 +23,10 @@
     <ng-container *ngFor="let tab of tabsService.getTabs(key) | async ; let i = index" >
       <div class="item" (click)="!tab.active && onSelectTab(tab)">
         <div class="title">
-          <i class="bi {{tab.icon}} tab-icon" *ngIf="tab.icon"></i>
+          <app-svg-icon [name]="tab.icon" *ngIf="tab.icon" [size]="18"></app-svg-icon>
           <div class="tab-title">{{ tab.title }}</div>
         </div>
-        <div role="button" class="close-tab ms-2" *ngIf="tab.closable" (click)="tabsService.closeTab(key,tab.id,this.tabContentViewContainerRef)"><app-svg-icon [name]="'x'"></app-svg-icon></div>
+        <div role="button" class="close-tab ms-2" *ngIf="tab.closable" (click)="tabsService.closeTab(key,tab.id,this.tabContentViewContainerRef)"><app-svg-icon [name]="'close'"></app-svg-icon></div>
       </div>
     </ng-container>
   </div>

@@ -12,6 +12,8 @@ import { SimplebarAngularModule } from 'simplebar-angular';
 import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { HttpClientModule } from '@angular/common/http';
 import { BlockUIModule } from 'ng-block-ui';
+import { RouterModule } from '@angular/router';
+
 //Components
 import { PersianCalendarComponent } from './components/persian-calendar/persian-calendar.component';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
@@ -19,6 +21,8 @@ import { ExploreTabComponent } from './components/explore-tab/explore-tab.compon
 import { ExpandablePanelComponent } from './components/expandable-panel/expandable-panel.component';
 import { ContextMenuComponent } from './components/context-menu/context-menu.component';
 import { BlockUiTemplateComponent } from './components/block-ui-template/block-ui-template.component';
+import { FullComponent } from './components/layout/full/full.component';
+import { ContentComponent } from './components/layout/content/content.component';
 //Directives
 import { ClickOutsideDirective } from './directives/click-out-side.directive';
 import { RightClickDirective } from './directives/right-click.directive';
@@ -29,11 +33,14 @@ import { RightClickDirective } from './directives/right-click.directive';
     ExploreTabComponent,
     ExpandablePanelComponent,
     ContextMenuComponent,
+    FullComponent,
+    ContentComponent
   ],
   imports: [
     NgbModule,
     CommonModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     NgSelectModule,
     CarouselModule,

@@ -158,10 +158,10 @@
         .title{
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: var(--gapXs);
             overflow: hidden;
             flex-grow: 1;
-            font-weight: 500;
+            font-weight: 400;
             .tab-title{
                 white-space: nowrap;
                 overflow: hidden;

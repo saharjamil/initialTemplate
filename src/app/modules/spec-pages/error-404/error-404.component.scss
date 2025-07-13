@@ -1,0 +1,27 @@
+.error-page-container{
+    height: 100dvh;
+    width: 100dvw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .error-message-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .error-image-container{
+            img{
+                max-width: 700px;
+                width: 100%;
+            }
+        }
+        .error-message-desctiption{
+            font-size: 3rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+    }
+    
+    
+    
+}

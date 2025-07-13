@@ -5,12 +5,16 @@ html{
     font-weight: 200;
 }
 body{
-    font-family: YekanBakh;
-    font-weight: 500;
+    font-family: Peyda;
+    font-weight: 400;
     font-size: 1rem;
     color: var(--body-text);
     direction: rtl;
     line-height: 1.2;
+}
+a{
+    text-decoration: none;
+    color: var(--primary);
 }
 .flex-center{
     display: flex;
@@ -992,6 +996,7 @@ table.custom-table-style {
         justify-content: center;
         color: #fff;
         font-size: 1rem;
+        font-weight: 500;
     }
 }
 
@@ -1007,6 +1012,26 @@ table.custom-table-style {
     }
     .custom-swal-time-progress-bar-container{
         background-color:rgba(0,0,0,0.3) !important;
+    }
+}
+
+.custom-list-style{
+    list-style: none;
+    li{
+        position: relative;
+        padding: var(--paddingSm) var(--paddingXXL) var(--paddingSm) var(--paddingSm);
+        line-height: 2rem;
+        &:before{
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: block;
+            position: absolute;
+            right: 0;
+            top: calc(var(--paddingSm) + 10px);
+        }
     }
 }
 
