@@ -23,10 +23,15 @@ export class AppSetting {
     public static danger = 'danger';
     public static warning = 'warning';
     public static success = 'success';
-    public static errorTitle = 'خطا';
-    public static warningTitle = 'هشدار';
-    public static successTitle = 'موفقیت';
     public static invalidForm = 'لطفا در تکمیل فرم دقت فرمایید';
+    // ==================================================== Swal
+    public static successTitle = 'مـوفـق';
+    public static successMessage = 'عملیات با موفقت انجام شد.';
+    public static errorTitle = 'خطا';
+    public static errorMessage = 'متاسفیم؛ در طول انجام عملیات خطایی رخ داد';
+    public static warningTitle = 'هشدار';
+  
+
 
     // ==================================================== PAGINATION
     public static pageSize = 16;

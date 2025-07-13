@@ -996,3 +996,17 @@ table.custom-table-style {
 }
 
 
+// Custom Swal Toast
+.custom-swal-popup-container{
+    border-radius: var(--borderRadiusMd);
+    padding: var(--paddingLg) var(--paddingXL) !important;
+    .custom-swal-html-container{
+        margin:  0 !important;
+        font-size: 1rem !important;
+        font-weight: 500 !important;
+    }
+    .custom-swal-time-progress-bar-container{
+        background-color:rgba(0,0,0,0.3) !important;
+    }
+}
+

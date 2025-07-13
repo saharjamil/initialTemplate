@@ -176,7 +176,7 @@
   --borderRadiusMd: 12px;
   --borderRadiusLg: 16px;
   --borderRadiusXL: 20px;
-  --borderRaisusXXL: 24px;
+  --borderRadiusXXL: 24px;
 
   --paddingXXs: 0.15rem;
   --paddingXs: 0.25rem;
@@ -359,6 +359,13 @@
   border-radius: var(--borderRadiusXL);
   padding: var(--paddingXL) var(--paddingXXL);
   font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.btn-xxl{
+  border-radius: var(--borderRadiusXXL);
+  padding: var(--paddingXL) var(--paddingXXL);
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.3;
 }

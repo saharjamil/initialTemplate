@@ -10,11 +10,6 @@ $transition: all ease 0.3s;
 .calendar-container{
     position: relative;
     color: var( --fontColor);
-    &:has(.filter-section){
-        .body{
-            min-height: 360px;
-        }
-    }
     &:not(:has(.navigation-btns)){
         .navigation{
             border: 0;
@@ -81,7 +76,7 @@ $transition: all ease 0.3s;
         
         .filter-section{
             position: absolute;
-            top: 8rem;
+            top: 0;
             left: 0;
             bottom: 0;
             right: 0;
@@ -91,6 +86,7 @@ $transition: all ease 0.3s;
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            height: 100%;
             
             .filter-head{
                 margin-bottom: 0.5rem;

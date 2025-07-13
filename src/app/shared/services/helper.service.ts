@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Width } from 'ngx-owl-carousel-o/lib/services/carousel.service';
 import Swal from 'sweetalert2';
-
+import { AppSetting } from '../../core/resources/AppSetting';
 
 @Injectable({
   providedIn: 'root',
@@ -27,75 +28,56 @@ export class HelperService{
     return arr[arr.length - 1]
   }
 
-  private successSwalBaseConfig = {
-    confirmButtonText: 'متوجه شدم',
-    buttonsStyling: false,
-    focusConfirm: false,
-    icon: 'success',
-    title: 'عملیات موفق',
-    text: 'عملیات با موفقیت انجام شد.'
-  };
-
-  private warningSwalBaseConfig = {
-    confirmButtonText: 'متوجه شدم',
-    buttonsStyling: false,
-    focusConfirm: false,
-    icon: 'warning',
-    title: 'عملیات ناموفق',
-    text: 'متاسفیم؛ در طول انجام عملیات خطایی رخ داد'
-  };
   
-  private swalButtonClasses = {
-    success: 'btn btn-success btn-md',
-    primary: 'btn btn-primary btn-md',
-    secondary: 'btn btn-secondary btn-md',
-    info: 'btn btn-info btn-md',
-    error: 'btn btn-error btn-md',
-    warning: 'btn btn-warning btn-md'
+  // Button style classes for SweetAlerts
+  swalButtonClasses: Record<string, string> = {
+    primary: 'btn btn-primary',
+    secondary: 'btn btn-secondary',
+    success: 'btn btn-success',
+    danger: 'btn btn-danger',
+    warning: 'btn btn-warning',
+    info: 'btn btn-info',
   };
-  private swalMixins = {
-    success: {
-      success: this.createSwalMixin(this.successSwalBaseConfig, 'success'),
-      primary: this.createSwalMixin(this.successSwalBaseConfig, 'primary'),
-      secondary: this.createSwalMixin(this.successSwalBaseConfig, 'secondary'),
-      info: this.createSwalMixin(this.successSwalBaseConfig, 'info'),
-      error: this.createSwalMixin(this.successSwalBaseConfig, 'error'),
-      warning: this.createSwalMixin(this.successSwalBaseConfig, 'warning')
-    },
-    warning: {
-      success: this.createSwalMixin(this.warningSwalBaseConfig, 'success'),
-      primary: this.createSwalMixin(this.warningSwalBaseConfig, 'primary'),
-      secondary: this.createSwalMixin(this.warningSwalBaseConfig, 'secondary'),
-      info: this.createSwalMixin(this.warningSwalBaseConfig, 'info'),
-      error: this.createSwalMixin(this.warningSwalBaseConfig, 'error'),
-      warning: this.createSwalMixin(this.warningSwalBaseConfig, 'warning')
-      }
-  };
-  private successSwalToastConfig = Swal.mixin( {
-    background: 'var(--success)',
-    color: 'var(--onSuccess)',
-    showConfirmButton: false,
-    toast: true,
-    position: 'bottom-left',
-    timer:5000,
-  })
-  private createSwalMixin(baseConfig: any, buttonType: keyof typeof this.swalButtonClasses) {
-    return Swal.mixin({
-      ...baseConfig,
+  // Map status to styles
+  private getStatusStyles( status: 'success' | 'error' | 'info' | 'warning' | 'primary' | 'secondary' ): { background: string; color: string } {
+    const map: Record< string, { background: string; color: string }> = {
+      success: { background: 'var(--success)', color: 'var(--onSuccess)' },
+      error: { background: 'var(--error)', color: 'var(--onError)' },
+      info: { background: 'var(--info)', color: 'var(--onInfo)' },
+      warning: { background: 'var(--warning)', color: 'var(--onWarning)' },
+      primary: { background: 'var(--primary)', color: 'var(--onPrimary)' },
+      secondary: { background: 'var(--secondary)', color: 'var(--onSecondary)' },
+    };
+    return map[status] || map['primary'];
+  }
+  // Unified method to show SweetAlert Modal/Toast
+  fireSwal(options: {  text?: string; width?:number, timer?:number, title?:string, isToast?: boolean; status?: 'success' | 'error' | 'info' | 'warning' | 'primary' | 'secondary'; buttonType?: 'success' | 'error' | 'info' | 'warning' | 'primary' | 'secondary'}) {
+    const { title, text = AppSetting.successMessage, timer, width, isToast = false, status = 'success', buttonType = 'primary'} = options;
+    const { background, color } = this.getStatusStyles(status);
+    const baseConfig: any = {
+      title,
+      text,
+      width,
+      icon: !isToast ? ['success', 'error', 'info', 'warning'].includes(status) ? status : undefined : undefined,
+      background: isToast ? background : undefined,
+      color: isToast ? color : undefined,
+      toast: isToast,
+      position: isToast ? 'bottom-left' : 'center',
+      showConfirmButton: !isToast,
+      confirmButtonText: 'متوجه شــدم',
+      timer: timer ? timer : isToast ? 3000 : undefined,
+      timerProgressBar: isToast,
       customClass: {
-        confirmButton: this.swalButtonClasses[buttonType]
+        confirmButton: this.swalButtonClasses[buttonType],
+        htmlContainer: isToast ? 'custom-swal-html-container' : '',
+        popup: isToast ? 'custom-swal-popup-container' : '',
+        timerProgressBar: isToast ? 'custom-swal-time-progress-bar-container' : '',
       }
-    });
-  }
-  
-  fireSwal(type: 'success' | 'warning', buttonType: keyof typeof this.swalButtonClasses) {
-    this.swalMixins[type][buttonType].fire({});
-  }
-
-  fireToastSwal(text:string) {
-    this.successSwalToastConfig.fire({
-      text: text
-    })
+    };
+    const swalInstance = Swal.mixin({ ...baseConfig });
+    swalInstance.fire();
   }
 
 }
+
+

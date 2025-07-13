@@ -55,43 +55,58 @@ export class SampleComponent {
   @BlockUI('customBlockUi') customBlockUi!: NgBlockUI;
   constructor(public helperService:HelperService){}
   fireSuccessSwalPrimaryButton() {
-    this.helperService.fireSwal('success','primary')
+    this.helperService.fireSwal({})
   }
   fireSuccessSwalSecondaryButton() {
-    this.helperService.fireSwal('success','secondary')
+    this.helperService.fireSwal({buttonType: "secondary"})
   }
   fireSuccessSwalSuccessButton() {
-    this.helperService.fireSwal('success','success')
+    this.helperService.fireSwal({buttonType: "success"})
   }
   fireSuccessSwalErrorButton() {
-    this.helperService.fireSwal('success','error')
+    this.helperService.fireSwal({ buttonType: "error"})
   }
   fireSuccessSwalWarningButton() {
-    this.helperService.fireSwal('success','warning')
+    this.helperService.fireSwal({ buttonType: "warning"})
   }
   fireSuccessSwalInfoButton() {
-    this.helperService.fireSwal('success','info')
+    this.helperService.fireSwal({ buttonType: "info"})
   }
   fireWarningSwalPrimaryButton() {
-    this.helperService.fireSwal('warning','primary')
+    this.helperService.fireSwal({ text: AppSetting.errorMessage, buttonType: "primary"})
   }
   fireWarningSwalSecondaryButton() {
-    this.helperService.fireSwal('warning','secondary')
+    this.helperService.fireSwal({ text: AppSetting.errorMessage, buttonType: "secondary", status:'warning'})
   }
   fireWarningSwalSuccessButton() {
-    this.helperService.fireSwal('warning','success')
+    this.helperService.fireSwal({ text: AppSetting.errorMessage, buttonType: "success", status:'warning'})
   }
   fireWarningSwalErrorButton() {
-    this.helperService.fireSwal('warning','error')
+    this.helperService.fireSwal({ text: AppSetting.errorMessage, buttonType: "error", status:'warning'})
   }
   fireWarningSwalWarningButton() {
-    this.helperService.fireSwal('warning','warning')
+    this.helperService.fireSwal({ text: AppSetting.errorMessage, buttonType: "warning", status:'warning'})
   }
   fireWarningSwalInfoButton() {
-    this.helperService.fireSwal('warning','info')
+    this.helperService.fireSwal({ text: AppSetting.errorMessage, buttonType: "info", status:'warning'})
+  }
+  firePrimaryToast() {
+    this.helperService.fireSwal({ isToast:true, status:'primary'})
+  }
+  fireSecondaryToast() {
+    this.helperService.fireSwal({ isToast:true, status:'secondary'})
   }
   fireSuccessToast() {
-    this.helperService.fireToastSwal('عملیات با موفقیت انجام شد.')
+    this.helperService.fireSwal({ isToast:true})
+  }
+  fireErrorToast() {
+    this.helperService.fireSwal({ isToast:true, status:'error'})
+  }
+  fireInfoToast() {
+    this.helperService.fireSwal({ isToast:true, status:'info'})
+  }
+  fireWarningToast() {
+    this.helperService.fireSwal({ isToast:true, status:'warning'})
   }
 
   
