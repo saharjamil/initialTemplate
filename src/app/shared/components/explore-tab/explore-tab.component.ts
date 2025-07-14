@@ -38,6 +38,7 @@ export class ExploreTabComponent {
   }
   
   ngOnInit(): void {  
+
     this.checkDevice();
     if (!this.key) {
       console.error('ExploreTabsComponent: "key" input is required for proper functionality.');

@@ -16,7 +16,7 @@
     </div>
 </div>
 <ng-template #tabsListTemplate>
-  <app-expandable-panel ClickOutside [excludeElement]="triggerButton.nativeElement" [minWidth]="250" (clickOutside)="closePanel()"  [borderColor]="'var(--nutral-10)'" [content]="tabsListTemplateContent" [position]="tabsListPanelPosition" *ngIf="showTabsListFlag && tabsService.getTabs(key).value.length>1"></app-expandable-panel>
+  <app-expandable-panel ClickOutside [excludeElement]="triggerButton.nativeElement" (clickOutside)="closePanel()"  [minWidth]="250"  [borderColor]="'var(--nutral-10)'" [content]="tabsListTemplateContent" [position]="tabsListPanelPosition" *ngIf="showTabsListFlag && tabsService.getTabs(key).value.length>1"></app-expandable-panel>
 </ng-template>
 <ng-template #tabsListTemplateContent>
   <div class="action-menu">

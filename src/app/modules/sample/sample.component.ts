@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { AppSetting } from '../../core/resources/AppSetting';
@@ -53,7 +53,8 @@ export class SampleComponent {
   fourthContextMenuIsShow: boolean = false;
   @BlockUI('blockUI') blockUI!: NgBlockUI;
   @BlockUI('customBlockUi') customBlockUi!: NgBlockUI;
-  constructor(public helperService:HelperService){}
+  constructor(public helperService: HelperService) { }
+
   fireSuccessSwalPrimaryButton() {
     this.helperService.fireSwal({})
   }
