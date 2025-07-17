@@ -1,9 +1,10 @@
 import { AngularEditorConfig } from "@kolkov/angular-editor";
-import Swal from "sweetalert2";
-import { SvgIconConfigViewModel } from "../viewModels/SvgIconConfigViewModel";
-
+import { MaskitoOptions, MaskitoPostprocessor, MaskitoPreprocessor } from "@maskito/core";
 
 export class AppSetting {
+
+
+  
   // public static baseUrl = 'http://wlt-test-sandbox.htsc.ir:1030';
     public static baseUrl = 'http://localhost:5245';
     public static tokenWriterType = 1; // 1:Local Storage 2:RAM
@@ -23,7 +24,11 @@ export class AppSetting {
     public static danger = 'danger';
     public static warning = 'warning';
     public static success = 'success';
+    public validInputMessage = 'فیلد معتبر است'
+    public requiredInputMessage = 'این فیلد الزامی است'
     public static invalidForm = 'لطفا در تکمیل فرم دقت فرمایید';
+    public invalidEmail = 'الگوی ایمیل نامعتبر است';
+    public invalidDate = 'الگوی تاریخ نامعتبر است';
     // ==================================================== Swal
     public static successTitle = 'مـوفـق';
     public static successMessage = 'عملیات با موفقت انجام شد.';
@@ -64,9 +69,37 @@ export class AppSetting {
 
     // ==================================================== MASKS
     public dateMask = [/[1]/, /[3-4]/, /[0-9]/, /[0-9]/, '/', /[0-1]/, /[0-9]/, '/', /[0-3]/, /[0-9]/];
+    public datePattern = '^1[3-4][0-9]{2}/[0-1][0-9]/[0-3][0-9]$'
     public cardNumberMask = [/[1-9]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
     public ibanMask = ['I', 'R', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/];
-    public cellphoneMask = [/[0]/, /[9]/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/];
+    public cellphoneMask = [/[0]/, /[9]/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/];
+    public emailPattern='^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$'  
+    public emailMask: MaskitoOptions = {
+      mask: /^[\w.%+-]*@?[\w.-]*\.?[a-zA-Z]{0,}$/,
+      preprocessors: [
+        ({ elementState, data }, actionType) => {
+          const { value, selection } = elementState;
+        // Allow typing '@' only if not already present and action is insert
+        if (data === '@' && !value.includes('@') && actionType === 'insert') {
+          return {
+            elementState: { value, selection },
+            data, // Pass '@' to be handled by the mask
+          };
+        }
+        // Allow other characters to be handled by the mask
+        return {
+          elementState: { value, selection },
+          data: actionType === 'insert' ? data : '',
+        };
+        },
+      ],
+      postprocessors: [
+        ({ value, selection })  => {
+          const trimmedValue = value.trim();
+          return { value: trimmedValue, selection };
+        },
+      ],
+    };
 
 
     // ==================================================== PLACEHOLDER
@@ -96,9 +129,9 @@ export class AppSetting {
     public angularEditorConfig: AngularEditorConfig = {
         editable: true,
         spellcheck: true,
-        height: "150px",
-        minHeight: "150px",
-        maxHeight: "150px",
+        height: "130px",
+        minHeight: "130px",
+        maxHeight: "130px",
         width: "auto",
         minWidth: "0",
         translate: "no",
@@ -106,9 +139,16 @@ export class AppSetting {
         enableToolbar: true,
         showToolbar: true,
         toolbarPosition: "top",
-        placeholder: "متن درخواست را وارد کنید :)",
+        placeholder: "متن مورد نظر خود را در این قسمت بنویسید",
         defaultParagraphSeparator: "div",
-        defaultFontName: "IranYekan",
+        defaultFontName: "Peyda",
+        fonts: [
+          { class: 'Peyda', name: 'Peyda' },
+          { class: 'Kalame', name: 'Kalame' },
+          {class: 'YekanBakh', name: 'YekanBakh'},
+          {class: 'IranYekan', name: 'IranYekan'},
+        
+      ],
         rawPaste: false,
         toolbarHiddenButtons: [
           [
@@ -118,18 +158,14 @@ export class AppSetting {
             "indent",
             "outdent",
             "heading",
-            "fontName",
             "undo",
             "redo",
-            "fontSize",
-    
             "customClasses",
             "link",
             "unlink",
             "insertImage",
             "insertVideo",
             "insertHorizontalRule",
-            "removeFormat",
             "toggleEditorMode",
           ],
         ],

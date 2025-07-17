@@ -439,3 +439,134 @@ font-weight: 900;
 	src: url('../fonts/Peyda/farsiNumerals/woff2/PeydaWebFaNum-Regular.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
 		 url('../fonts/Peyda/farsiNumerals/woff/PeydaWebFaNum-Regular.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }
+
+//Kalame
+@font-face {
+    font-family: "Kalame";
+    src: url("../fonts/Kalame/standard/woff/KalamehWeb-Light.woff")
+        format("woff"),
+      url("../fonts/Kalame/standard/woff2/KalamehWeb-Light.woff2")
+        format("woff2");
+    font-weight: 100;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/standard/woff/KalamehWeb-Thin.woff")
+      format("woff"),
+    url("../fonts/Kalame/standard/woff2/KalamehWeb-Thin.woff2")
+      format("woff2");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/standard/woff/KalamehWeb-Regular.woff")
+      format("woff"),
+    url("../fonts/Kalame/standard/woff2/KalamehWeb-Regular.woff2")
+      format("woff2");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/standard/woff/KalamehWeb-Medium.woff")
+      format("woff"),
+    url("../fonts/Kalame/standard/woff2/KalamehWeb-Medium.woff2")
+      format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/standard/woff/KalamehWeb-SemiBold.woff")
+      format("woff"),
+    url("../fonts/Kalame/standard/woff2/KalamehWeb-SemiBold.woff2")
+      format("woff2");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/standard/woff/KalamehWeb-Bold.woff")
+      format("woff"),
+    url("../fonts/Kalame/standard/woff2/KalamehWeb-Bold.woff2")
+      format("woff2");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/standard/woff/KalamehWeb-ExtraBold.woff")
+      format("woff"),
+    url("../fonts/Kalame/standard/woff2/KalamehWeb-ExtraBold.woff2")
+      format("woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/standard/woff/KalamehWeb-Black.woff")
+      format("woff"),
+    url("../fonts/Kalame/standard/woff2/KalamehWeb-Black.woff2")
+      format("woff2");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/numberals/woff/KalamehWebFaNum-Light.woff")
+      format("woff"),
+    url("../fonts/Kalame/numberals/woff2/KalamehWebFaNum-Light.woff2")
+      format("woff2");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/numberals/woff/KalamehWebFaNum-Thin.woff")
+      format("woff"),
+    url("../fonts/Kalame/numberals/woff2/KalamehWebFaNum-Thin.woff2")
+      format("woff2");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/numberals/woff/KalamehWebFaNum-Regular.woff")
+      format("woff"),
+    url("../fonts/Kalame/numberals/woff2/KalamehWebFaNum-Regular.woff2")
+      format("woff2");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/numberals/woff/KalamehWebFaNum-Medium.woff")
+      format("woff"),
+    url("../fonts/Kalame/numberals/woff2/KalamehWebFaNum-Medium.woff2")
+      format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/numberals/woff/KalamehWebFaNum-SemiBold.woff")
+      format("woff"),
+    url("../fonts/Kalame/numberals/woff2/KalamehWebFaNum-SemiBold.woff2")
+      format("woff2");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/numberals/woff/KalamehWebFaNum-Bold.woff")
+      format("woff"),
+    url("../fonts/Kalame/numberals/woff2/KalamehWebFaNum-Bold.woff2")
+      format("woff2");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/numberals/woff/KalamehWebFaNum-ExtraBold.woff")
+      format("woff"),
+    url("../fonts/Kalame/numberals/woff2/KalamehWebFaNum-ExtraBold.woff2")
+      format("woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Kalame";
+  src: url("../fonts/Kalame/numberals/woff/KalamehWebFaNum-Black.woff")
+      format("woff"),
+    url("../fonts/Kalame/numberals/woff2/KalamehWebFaNum-Black.woff2")
+      format("woff2");
+  font-weight: 800;
+}

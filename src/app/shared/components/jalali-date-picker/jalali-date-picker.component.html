@@ -1,0 +1,13 @@
+<ng-persian-datepicker class="custom-datepicker-style" [dateInitValue]="false" [uiIsVisible]="datepickerVisible" (uiIsVisibleChange)="onUiIsVisibleChange($event)">
+    <div [class.valid]="value.valid" [class.form-label-group]="!animatedLabel" [class.animated-label]="animatedLabel" [class.form-group]="animatedLabel" [class.valid]="value.valid && value.touched" [class.mb-2]="value.value">
+        <div class="icon-container" *ngIf="animatedLabel">
+            <app-svg-icon [name]="'calendarMark'" [size]="20"></app-svg-icon>
+        </div>
+        <label class="placeholder-lable form-label" [for]="inputID">{{label}}</label>
+        <input [id]="inputID" [required]="isRequired" [maskito]="{mask: setting.dateMask}" (change)="onChange($event)" [pattern]="setting.datePattern" [formControl]="value" class="form-control ltr" placeholder="" autocomplete="off" />
+    </div>
+</ng-persian-datepicker>
+<div *ngIf="submitted && value.invalid" class="form-validation-messages">
+    <div *ngIf="value.errors?.['required']">{{setting.requiredInputMessage}}</div>
+    <div *ngIf="value?.errors?.['pattern']">{{setting.invalidDate}}</div>
+</div>

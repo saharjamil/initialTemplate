@@ -1,0 +1,10 @@
+<div class="form-group animated-label mb-2" [class.valid]="cellPhoneField.valid && cellPhoneField.touched">
+    <div class="icon-container">
+        <app-svg-icon [name]="'smartPhone'" [size]="20"></app-svg-icon>
+    </div>
+    <label class="placeholder-lable form-label" for="cellPhoneInput">شماره همراه</label>
+    <input required (ngModelChange)="onChange($event)" [(ngModel)]="value" #cellPhoneField="ngModel" [maskito]="{mask: setting.cellphoneMask}" id="cellPhoneInput" name="cellPhoneInput" class="form-control ltr" type="text" placeholder="" />
+</div>
+<div *ngIf="cellPhoneField.invalid && cellPhoneField.touched" class="form-validation-messages">
+    <div *ngIf="cellPhoneField.errors?.['required']">{{setting.requiredInputMessage}}</div>
+</div>

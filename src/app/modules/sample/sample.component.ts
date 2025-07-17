@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { AppSetting } from '../../core/resources/AppSetting';
@@ -8,6 +8,10 @@ import { ContextMenuItemInterface } from '../../core/interfaces/contextMenuItemI
 import { FileUploader } from 'ng2-file-upload';
 import { HelperService } from '../../shared/services/helper.service';
 import { CalendarFilterDateViewModel } from '../../shared/components/persian-calendar/calendarViewModels/CalendarFilterDateViewModel';
+import { MaskitoOptions,MaskitoPostprocessor , MaskitoPreprocessor, MaskitoElementPredicate
+  
+   } from '@maskito/core';
+import { ElementState } from '@maskito/core/src/lib/types';
 const URL = "";
 @Component({
   selector: 'app-sample',
@@ -16,7 +20,7 @@ const URL = "";
   styleUrl: './sample.component.scss'
 })
 
-export class SampleComponent {
+export class SampleComponent implements OnInit {
   
   setting: AppSetting = new AppSetting();
   uploader: FileUploader = new FileUploader({url:URL});
@@ -27,12 +31,15 @@ export class SampleComponent {
     { ID: 2, Title: 'لورم ایپسوم' },
     { ID: 3, Title: 'لورم ایپسوم' },
   ];
-  datePickerInput1: FormControl = new FormControl();
+  datePickerInput1: FormControl = new FormControl('');
   datePickerInput2: FormControl = new FormControl();
   datePickerInput3: FormControl = new FormControl();
   datePickerInput4: FormControl = new FormControl();
   datePickerInput5: FormControl = new FormControl();
   datePickerInput6: FormControl = new FormControl();
+  datePickerInput7: FormControl = new FormControl();
+  datePickerInput8: FormControl = new FormControl();
+  datePickerInput9: FormControl = new FormControl();
   contextMenuItems: ContextMenuItemInterface[] = [{
       label: 'لورم ایپسوم متن',
       action: () => this.fireSuccessSwalSecondaryButton(),
@@ -53,8 +60,28 @@ export class SampleComponent {
   fourthContextMenuIsShow: boolean = false;
   @BlockUI('blockUI') blockUI!: NgBlockUI;
   @BlockUI('customBlockUi') customBlockUi!: NgBlockUI;
-  constructor(public helperService: HelperService) { }
-
+  sampleFormInputNgModels = {
+    Name: '',
+    FamilyName: '',
+    FatherName:'',
+    CellPhone: '',
+    BirthDate: '',
+    Email: '',
+    Date:'',
+    IP: '',
+  }
+  constructor(public helperService: HelperService, private cdr:ChangeDetectorRef) { }
+   ngAfterViewInit() {
+        this.cdr.detectChanges();
+    }
+  ngOnInit(): void {
+    
+  }
+  onSubmitForm() {
+    this.sampleFormInputNgModels.Date = this.datePickerInput1.value
+    console.log(this.sampleFormInputNgModels)
+    
+}
   fireSuccessSwalPrimaryButton() {
     this.helperService.fireSwal({})
   }

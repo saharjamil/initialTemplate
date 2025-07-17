@@ -13,7 +13,6 @@ import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { HttpClientModule } from '@angular/common/http';
 import { BlockUIModule } from 'ng-block-ui';
 import { RouterModule } from '@angular/router';
-
 //Components
 import { PersianCalendarComponent } from './components/persian-calendar/persian-calendar.component';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
@@ -23,9 +22,16 @@ import { ContextMenuComponent } from './components/context-menu/context-menu.com
 import { BlockUiTemplateComponent } from './components/block-ui-template/block-ui-template.component';
 import { FullComponent } from './components/layout/full/full.component';
 import { ContentComponent } from './components/layout/content/content.component';
+import { TextInputComponent } from './components/text-input/text-input.component';
+import { JalaliDatePickerComponent } from './components/jalali-date-picker/jalali-date-picker.component';
 //Directives
 import { ClickOutsideDirective } from './directives/click-out-side.directive';
 import { RightClickDirective } from './directives/right-click.directive';
+import { Ipv4ValidatorDirective } from './directives/ip-validator.directive';
+import { PersianLettersOnlyDirective } from './directives/persian-letters-only.directive';
+import { MaskitoDirective } from '@maskito/angular';
+import { MobileValidatorDirective } from './directives/mobile-validator.directive';
+import { EmailValidatorDirective } from './directives/email-validator.directive';
 @NgModule({
   declarations: [
     PersianCalendarComponent,
@@ -34,7 +40,9 @@ import { RightClickDirective } from './directives/right-click.directive';
     ExpandablePanelComponent,
     ContextMenuComponent,
     FullComponent,
-    ContentComponent
+    ContentComponent,
+    TextInputComponent,
+    JalaliDatePickerComponent
   ],
   imports: [
     NgbModule,
@@ -50,8 +58,14 @@ import { RightClickDirective } from './directives/right-click.directive';
     BlockUIModule.forRoot({template: BlockUiTemplateComponent, message:'در حال پردازش؛ شکیبا باشید ...'}),
     NgPersianDatepickerModule,
     SimplebarAngularModule,
+    
     ClickOutsideDirective,
-    RightClickDirective
+    RightClickDirective,
+    Ipv4ValidatorDirective,
+    PersianLettersOnlyDirective,
+    MaskitoDirective,
+    MobileValidatorDirective,
+    EmailValidatorDirective
   ],
   exports: [
     NgbModule,
@@ -65,13 +79,22 @@ import { RightClickDirective } from './directives/right-click.directive';
     SimplebarAngularModule,
     HttpClientModule,
     BlockUIModule,
+
     ClickOutsideDirective,
     RightClickDirective,
+    Ipv4ValidatorDirective,
+    PersianLettersOnlyDirective,
+    MaskitoDirective,
+    MobileValidatorDirective,
+    EmailValidatorDirective,
+    
     PersianCalendarComponent,
     SvgIconComponent,
     ExpandablePanelComponent,
     ExploreTabComponent,
     ContextMenuComponent,
+    TextInputComponent,
+    JalaliDatePickerComponent
   ],
   
 })

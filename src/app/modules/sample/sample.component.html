@@ -552,12 +552,11 @@
                     <div class="card-header">BlockUI</div>
                     <div class="card-body">
                         <div class="d-flex align-items-center flex-wrap gap-2">
-                            <button class="btn btn-highlight-info btn-md" (click)="showBlockUI()">نمایش BlockUI با متن پیش فرض</button>
+                            <button class="btn btn-highlight-info btn-md" (click)="showBlockUI()">نمایش BlockUI پیش فرض</button>
                             <button class="btn btn-highlight-info btn-md" (click)="showBlockUI('در حال بروزرسانی ...')">نمایش BlockUI با متن دلخواه</button>
-                            <button class="btn btn-highlight-info btn-md" (click)="showCustomBlockUI()">نمایش BlockUI با قالب سفارشی سازی شده</button>
+                            <button class="btn btn-highlight-info btn-md" (click)="showCustomBlockUI()">نمایش BlockUI سفارشی</button>
                         </div>
                         <div class="mt-3" style="height:300px" *blockUI="'customBlockUi';  template: customBlockUITemplate"></div>
-
                     </div>
                 </div>
                 <div class="card mb-2">
@@ -575,13 +574,26 @@
 
                     </div>
                 </div>
-                <div class="card">
+                <div class="card mb-2">
                     <div class="card-header">Jalali Calendar</div>
                     <div class="card-body">
                         <app-persian-calendar [primaryColor]="'var(--primary)'"
                             [secondaryColor]="'var(--secondary)'" [days]="calendarData.D140403"
                             [showBody]="true" [isLoading]="isLoadingCalendarData"
                             [dayNamesType]="'short'" (yearAndMonthFilterEmitter)="onNavigateToDate($event)" [isLoading]="calendarLoadingData"></app-persian-calendar>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Bullets</div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="bullet"></div>
+                            <div class="bullet secondary"></div>
+                            <div class="bullet success"></div>
+                            <div class="bullet error"></div>
+                            <div class="bullet warning"></div>
+                            <div class="bullet info"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -593,13 +605,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header">Form</div>
                     <div class="card-body">
                         <form #form="ngForm" (ngSubmit)="submitForm(form)">
                             <div class="row gx-2">
-                                <div class="col-lg-3">
+                                <div class="col-lg-6">
                                     <div class="form-group animated-label form-group-xs mb-2">
                                         <div class="icon-container">
                                             <app-svg-icon [name]="'documentText'" [size]="20"></app-svg-icon>
@@ -652,8 +664,6 @@
                                         </div>
                                         <input id="sample8" name="sample6" class="form-control" type="text" placeholder="لورم ایپسوم" />
                                     </div>
-                                </div>
-                                <div class="col-lg-3">
                                     <div class="form-group animated-label form-group-xs mb-2">
                                         <label class="placeholder-lable form-label" for="sample9">لورم ایپسوم</label>
                                         <input id="sample9" name="sample9" type="text" class="form-control" placeholder="" />
@@ -662,6 +672,16 @@
                                         <label class="placeholder-lable form-label" for="sample10">لورم ایپسوم</label>
                                         <input id="sample10" name="sample10" type="text" class="form-control" placeholder="" />
                                     </div>
+                                    <div class="form-label-group form-label-group-xs mb-2">
+                                        <label class="form-label" for="sample11">لورم ایپسوم</label>
+                                        <input id="sample11" name="sample11" class="form-control" placeholder="لورم ایپسوم" />
+                                    </div>
+                                    <div class="form-label-group mb-2">
+                                        <label class="form-label" for="sample12">لورم ایپسوم</label>
+                                        <input id="sample12" name="sample12" class="form-control" placeholder="لورم ایپسوم" />
+                                    </div>  
+                                </div>
+                                 <div class="col-lg-6">
                                     <ng-select class="custom-select-style selection-xs mb-2" [multiple]="true"
                                         [items]="ngSelectData" bindValue="ID" bindLabel="Title"
                                         markFirst="false" notFoundText="داده‌ای یافت نشد"
@@ -718,20 +738,16 @@
                                                     placeholder="تاریخ پایان" />
                                             </div>
                                         </ng-persian-datepicker>
+                                    </div> 
+                                                                     
+                                    <div class="form-label-group mb-2">
+                                        <textarea id="sample-19" name="sample-19" rows="3" class="form-control" placeholder="لورم ایپسوم"></textarea>
                                     </div>
-                                    
-                                </div>
-                                 <div class="col-lg-3">
-                                    
-                                    <div class="form-label-group form-label-group-xs mb-2">
-                                        <label class="form-label" for="sample11">لورم ایپسوم</label>
-                                        <input id="sample11" name="sample11" class="form-control" placeholder="لورم ایپسوم" />
+                                    <div class="custom-text-editor mb-2">
+                                        <angular-editor placeholder='متن مورد نظر را بنویسید' id="sample19" name="sample19" class="text-editor custom-scrollbar" [config]="setting.angularEditorConfig"  required >
+                                        </angular-editor>
                                     </div>
-                                    <div class="form-label-group mb-4">
-                                        <label class="form-label" for="sample12">لورم ایپسوم</label>
-                                        <input id="sample12" name="sample12" class="form-control" placeholder="لورم ایپسوم" />
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 mb-4">
+                                    <div class="d-flex align-items-center gap-2 my-4">
                                         <div class="form-checkbox-container form-checkbox-container-xs">
                                             <div class="custom-checkbox-style">
                                                 <input type="checkbox" id="sample13" name="sample13" />
@@ -757,7 +773,7 @@
                                             <label class="form-label" for="sample17">لورم ایپسوم</label>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-highlight-primary btn-sm" (click)="fileInput.click()">
+                                    <button type="button" class="btn btn-highlight-primary btn-sm mb-2" (click)="fileInput.click()">
                                         <input #fileInput type="file" class="custom-file-input" type="file" ng2FileSelect [uploader]="uploader" multiple name="ticketAttaches" (onFileSelected)="onFileSelect()" [accept]="setting.acceptedUploadFileExtention"  />
                                         <app-svg-icon [name]="'paperclipRounded2'" [size]="20"></app-svg-icon>افزودن فایل / تصویر
                                     </button>
@@ -785,19 +801,54 @@
                                             </div>
                                         </div>
                                     </ng-container>
-                                    
                                 </div>
-                                <div class="col-lg-3"> 
-                                    <div class="form-label-group mb-2">
-                                        <textarea id="sample-19" name="sample-19" rows="5" class="form-control" placeholder="لورم ایپسوم"></textarea>
-                                    </div>
-                                    <div class="custom-text-editor">
-                                        <angular-editor id="sample19" name="sample19" class="text-editor custom-scrollbar" [config]="setting.angularEditorConfig"  required >
-                                        </angular-editor>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-header">Form Validation</div>
+                    <div class="card-body">
+                        <form #sampleForm="ngForm">
+                            <div class="row gx-2 gy-3">
+                                <div class="col-lg-6">
+                                    <app-text-input name="name" [(ngModel)]="sampleFormInputNgModels.Name" [iconName]="'userRounded'" [label]="'فقط فارسی'" [submitted]="sampleForm.submitted"></app-text-input>
+                                </div>
+                                 <div class="col-lg-6">
+                                    <app-text-input name="familyName" [(ngModel)]="sampleFormInputNgModels.FamilyName" [iconName]="'userRounded'" [label]="'فقط فارسی (اختیاری)'" [required]="false" [submitted]="sampleForm.submitted"></app-text-input>
+                                </div>
+                                <div class="col-lg-6">
+                                    <app-jalali-date-picker [formControl]="datePickerInput7" [submitted]="sampleForm.submitted"></app-jalali-date-picker>
+                                </div>
+                                <div class="col-lg-6">
+                                    <app-jalali-date-picker [formControl]="datePickerInput8" [submitted]="sampleForm.submitted" [label]="'تاریخ با لیبل دلخواه'"></app-jalali-date-picker>
+                                </div>
+                                <div class="col-lg-6">
+                                    <app-text-input name="cellphone" [(ngModel)]="sampleFormInputNgModels.CellPhone" [iconName]="'smartPhone'" [label]="'شماره همراه'" [maskType]="'cellphone'" [submitted]="sampleForm.submitted"></app-text-input>
+                                </div>
+                                <div class="col-lg-6">
+                                    <app-text-input name="email" [(ngModel)]="sampleFormInputNgModels.Email"  [iconName]="'letter'" [label]="'پست الکترونیک'" [maskType]="'email'" [submitted]="sampleForm.submitted"></app-text-input>
+                                </div>
+                                <div class="col-lg-6">
+                                    <app-text-input name="ipAddress" [(ngModel)]="sampleFormInputNgModels.IP"  [iconName]="'document'" [label]="'آدرس IP'" [maskType]="'IP'" [submitted]="sampleForm.submitted"></app-text-input>
+                                </div>
+                                <div class="col-lg-6">
+                                    <app-text-input name="notRequired" [label]="'فیلد اختیاری'" [iconName]="'document'" [isRequired]="false" [submitted]="sampleForm.submitted"></app-text-input>
+                                </div>
+                                <div class="col-lg-6">
+                                    <app-text-input name="notAnimatedLabel" [label]="'لیبل ثابت'" [animatedLabel]="false" [submitted]="sampleForm.submitted"></app-text-input>
+                                </div>
+                                <div class="col-lg-6">
+                                    <app-jalali-date-picker [formControl]="datePickerInput9" [submitted]="sampleForm.submitted" [animatedLabel]="false"></app-jalali-date-picker>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center justify-content-end">
+                                        <button type="submit" class="btn btn-highlight-primary btn-lg" (click)="onSubmitForm()">ثبت اطلاعات</button>
                                     </div>
                                 </div>
                             </div>
-                            
                         </form>
                     </div>
                 </div>
@@ -5859,6 +5910,12 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">Bootstrap Icons</div>
+                    <div class="card-body">جهت مشاهده آیکن ها و نحوه استفاده از آیکن های بوت استرپ به سایت <a href="https://icons.getbootstrap.com/" target="_blank">بوت استرپ</a> مراجعه نمایید.</div>
                 </div>
             </div>
         </div>

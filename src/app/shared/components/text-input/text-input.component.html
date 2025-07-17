@@ -1,0 +1,30 @@
+<div [class.form-label-group]="!animatedLabel" [class.animated-label]="animatedLabel" [class.form-group]="animatedLabel" [class.valid]="textInput.valid && textInput.touched && textInput.value">
+    <div class="icon-container" *ngIf="iconName">
+        <app-svg-icon [name]="iconName" [size]="20"></app-svg-icon>
+    </div>
+    <label class="placeholder-lable form-label" [for]="inputId">{{label}}</label>
+    <input 
+        #textInput="ngModel"
+        [id]="inputId"
+        [name]="inputId"
+        class="form-control"
+        type="text"
+        [class.ltr]="maskType == 'cellphone' || maskType == 'email' || maskType == 'IP'"
+        [required]="isRequired"
+        [(ngModel)]="value" 
+        [placeholder]="placeholder"
+        [persianLettersOnly]="maskType === 'none' && persianLettersOnly"
+        [maskito]="maskType == 'cellphone' ? { mask: setting.cellphoneMask } : (maskType == 'email' ? setting.emailMask : null)"
+        [emailValidator]="maskType == 'email'"
+        [mobileValidator]="maskType == 'cellphone'"
+        [ipv4Validator]="maskType == 'IP'"
+        (ngModelChange)="handleInputChange($event)"
+        (blur)="onTouched()"
+    />
+</div>
+<div *ngIf="submitted && textInput?.invalid " class="form-validation-messages">
+    <div *ngIf="textInput.errors?.['required']">{{setting.requiredInputMessage}}</div>
+    <div *ngIf="textInput.errors?.['emailInvalid'] && maskType == 'email'">{{setting.invalidEmail}}</div>
+    <div *ngIf="textInput.errors?.['ipv4Invalid'] && maskType == 'IP'">فرمت IP نامعتبر است</div>
+     <div *ngIf="textInput.errors?.['mobileInvalid'] && maskType == 'cellphone'">شماره موبایل نامعتبر است</div>
+</div>
