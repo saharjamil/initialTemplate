@@ -5,7 +5,7 @@
                 <tr>
                     <th>ردیف</th>
                     <th *ngFor="let col of columns">{{col.Title}}</th>
-                    <th *ngIf="hasRowActions"></th>
+                    <th *ngIf="allActions.length"></th>
                 </tr>
             </thead>
             <tbody>
@@ -14,20 +14,16 @@
                     <tr>
                         <td>{{(pageNumber - 1) * pageSize + (i + 1)}}</td>
                         <td *ngFor="let col of columns">{{item[col.Key]}}</td>
-                        <td *ngIf="hasRowActions">
+                        <td *ngIf="allActions.length">
                             <div class="d-flex align-items-center gap-2">
-                                <button *ngIf="hasViewBtn" placement="bottom" [ngbTooltip]="setting.viewTooltip" tooltipClass="custom-tooltip-style" class="btn btn-icon" (click)="onViewSelected(item)"><app-svg-icon [name]="'eye'" [size]="20"></app-svg-icon></button>
-                                <button *ngIf="hasFolderBtn" placement="bottom" [ngbTooltip]="setting.folderTooltip" tooltipClass="custom-tooltip-style" class="btn btn-icon" (click)="onFolderSelected(item)"><app-svg-icon [name]="'folder'" [size]="20"></app-svg-icon></button>
-                                <button *ngIf="hasEditBtn" placement="bottom" [ngbTooltip]="setting.editTooltip" tooltipClass="custom-tooltip-style" class="btn btn-icon" (click)="onEditSelected(item)"><app-svg-icon [name]="'pen2'" [size]="20"></app-svg-icon></button>
-                                <button *ngIf="hasRemoveBtn" placement="bottom" [ngbTooltip]="setting.removeTooltip" tooltipClass="custom-tooltip-style" class="btn btn-icon" (click)="onRemoveSelected(item)"><app-svg-icon [name]="'trashBinMinimalistic'" [size]="20"></app-svg-icon></button>
-                                <ng-container *ngIf="customActions">
-                                    <button *ngFor="let action of customActions" placement="bottom" [ngbTooltip]="action.type == 'iconic' ? action.title : ''" tooltipClass="custom-tooltip-style" class="btn" [ngClass]="action.type == 'iconic' ? 'btn-icon' : 'btn-sm btn-highlight-primary'"(click)="onCustomAction({data: item, action:action.action})">
-                                        <app-svg-icon [name]="action.icon" [size]="action.type == 'iconic' ? 20 : 18"></app-svg-icon>
-                                        <ng-container *ngIf="action.type == 'text'">
+                                <button *ngFor="let action of allActions" [ngbTooltip]="action.type == 'iconic' ? action.title : ''" tooltipClass="custom-tooltip-style" placement="bottom" triggers="hover" class="d-flex align-items-center btn" [ngClass]="['btn', action.type === 'iconic' ? 'btn-icon' : '', 'btn-' + (action.buttonColorType ? action.buttonColorType + '-' : '') + (action.type == 'text' || action.buttonColor ? action.buttonColor || 'primary' : ''), 'btn-' + (action.type == 'text' ? action.buttonSize || 'sm' : ''), 'order-' + (action.order ? action.order : '')]" (click)="onButtonAction({data: item, action:action.action})">
+                                        <span *ngIf="action.icon" [ngClass]="{'order-2': action.leftIcon,}">
+                                            <app-svg-icon  [name]="action.icon" [size]="action.type == 'iconic' ? 20 : 18"></app-svg-icon>
+                                        </span>
+                                        <span *ngIf="action.type == 'text'" [ngClass]="{'order-2': !action.leftIcon,}">
                                             {{action.title}}
-                                        </ng-container>
-                                    </button>
-                                </ng-container>
+                                        </span>
+                                </button>
                             </div>
                         </td>
                     </tr>

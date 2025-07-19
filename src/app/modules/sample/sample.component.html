@@ -857,7 +857,11 @@
                 <div class="card">
                     <div class="card-header">Table</div>
                     <div class="card-body">
-                        <app-table [data]="mockData" [columns]="tableColumns" [customActions]="tableCustomActions" [hasRowActions]="true" [hasRemoveBtn]="true" [hasEditBtn]="true" [hasViewBtn]="true" [hasFolderBtn]="true" (onRemove)="onRemoveItem($event)" (onEdit)="onEditItem($event)" (onOpenFolder)="onOpenFolder($event)" (onView)="onViewItem($event)" (customAction)="handleCustomAction($event)"></app-table>
+                        <div class="mb-4">
+                            <app-table [data]="mockData" [columns]="tableColumns" [mainActions]="tableMainActions" [customActions]="tableCustomActions" [pageSize]="5" (buttonAction)="handleButtonAction($event)"></app-table>
+                        </div>
+                        <app-table [data]="mockData" [columns]="tableColumns" [mainActions]="secondTableMainActions" [customActions]="tableCustomActions" [pageSize]="5" (buttonAction)="handleButtonAction($event)"></app-table>
+
                     </div>
                 </div>
             </div>

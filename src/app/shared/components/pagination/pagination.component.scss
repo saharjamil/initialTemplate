@@ -5,13 +5,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: var(--paddingMd);
   &:has(div:only-child) {
     justify-content: flex-end;
-  }
-  .ngx-pagination {
-    margin-bottom: 0 !important;
-    display: flex;
-    align-items: center;
   }
 
   .page-size-container {
@@ -41,12 +37,16 @@
     font-size: 0.7rem;
   
     .ngx-pagination {
-      &.disabled {
-        color: #777777 !important;
-        background-color: #fff !important;
-        border-color: #ddd !important;
-        cursor: not-allowed !important;
-      }
+       margin-bottom: 0 !important;
+        display: flex;
+        align-items: center;
+        padding-right: 0 !important;
+        &.disabled {
+          color: #777777 !important;
+          background-color: #fff !important;
+          border-color: #ddd !important;
+          cursor: not-allowed !important;
+        }
   
       .pagination-next {
         position: relative;
@@ -133,7 +133,8 @@
         justify-content: center;
   
         a {
-          font-size: 11px !important;
+          font-size: 0.8rem !important;
+          font-weight: 500;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -186,7 +187,7 @@
       a:focus {
         text-decoration: none !important;
         background-color: #fff !important;
-        border: 1px solid #ddd;
+        border: 1px solid var(--gray-light-100);
         margin-left: -1px !important;
         padding: 7px 13px !important;
         border-radius: 50rem !important;

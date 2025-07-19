@@ -1,0 +1,1 @@
+export type TableBuiltInActionType = 'edit' | 'remove' | 'view' | 'openFolder';

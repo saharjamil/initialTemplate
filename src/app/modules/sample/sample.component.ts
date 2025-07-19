@@ -9,8 +9,9 @@ import { FileUploader } from 'ng2-file-upload';
 import { HelperService } from '../../shared/services/helper.service';
 import { CalendarFilterDateViewModel } from '../../shared/components/persian-calendar/calendarViewModels/CalendarFilterDateViewModel';
 import { data } from '../../core/data/mockTableData';
-import { TableCustomActionInterface } from '../../core/interfaces/tableCustomActionInterface';
+import { TableRowActionInterface } from '../../core/interfaces/tableRowActionInterface';
 import { TableCustomActionEventInterFace } from '../../core/interfaces/tableCustomActionEventInterface';
+import {TableBuiltInActionsConfigType} from '../../core/types/TableBuiltInActionsConfigType'
 const URL = "";
 @Component({
   selector: 'app-sample',
@@ -74,12 +75,47 @@ export class SampleComponent {
     { Key: 'FirstName', Title: 'نام' },
     { Key: 'LastName', Title: 'نام خانوادگی' },
     { Key: 'Email', Title: 'ایمیل' },
-    { Key: 'Gender', Title: 'جنسیت' },
     { Key: 'IPAddress', Title: 'آدرس IP' },
   ]
-  tableCustomActions: Array<TableCustomActionInterface<any>> = [
-    {type: 'iconic', icon: 'multipleForwardLeft' , title: 'ارسال', action: (data:any) => this.onSend(data) }
+  tableMainActions: TableBuiltInActionsConfigType<any> = {
+    edit: {
+      buttonColor: 'primary',
+      buttonColorType: 'highlight',
+      type: 'iconic',
+      action: (item: any) => this.onEditItem(item),
+      order: 2,
+    },
+    remove: {
+      buttonColor: 'error',
+      buttonColorType: 'outline',
+      type: 'text',
+      action: (item: any) => this.onRemoveItem(item),
+      order: 1,
+    },
+    openFolder: {
+      action: (item: any) => this.onOpenFolder(item),
+      buttonColor: 'warning',
+      buttonColorType: 'outline',
+      order: 3,
+    }
+  }
+  tableCustomActions: Array<TableRowActionInterface<any>> = [
+    {type: 'iconic', icon: 'multipleForwardLeft', title: 'ارسال', order: 4, action: (data:any) => this.onSend(data) }
   ]
+  secondTableMainActions: TableBuiltInActionsConfigType<any> = {
+    edit: {
+      action: (item: any) => this.onEditItem(item),
+    },
+    remove: {
+      action: (item:any)=> this.onRemoveItem(item)
+    },
+    view: {
+      action: (item:any) => this.onViewItem(item)
+    },
+    openFolder: {
+      action : (item:any) => this.onOpenFolder(item)
+    }
+  }
    constructor(public helperService: HelperService, private cdr:ChangeDetectorRef) { }
 
    ngAfterViewInit() {
@@ -247,22 +283,22 @@ export class SampleComponent {
 
 
   onRemoveItem(item:any) {
-    console.log(item)
+    console.log('remove',item)
   }
   onEditItem(item:any) {
-    console.log(item)
+    console.log('edit',item)
   }
   onOpenFolder(item: any) {
-    console.log(item)
+    console.log('openFolder',item)
   }
   onViewItem(item: any) {
-    console.log(item)
+    console.log('view',item)
   }
   onSend(item: any) {
     
-    console.log(item)
+    console.log('send',item)
   }
-  handleCustomAction(event: TableCustomActionEventInterFace<any>) {
+  handleButtonAction(event: TableCustomActionEventInterFace<any>) {
     event.action(event.data)
   }
   
