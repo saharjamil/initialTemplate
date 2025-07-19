@@ -1,7 +1,7 @@
 import { MessageViewModel } from './MessageViewModel';
 export class ResultViewModel<T>{
     Message:MessageViewModel;
-    List:T[]|undefined;
+    List:T[];
     Result: T|undefined;
     TotalCount:number;
 constructor(message?:MessageViewModel,

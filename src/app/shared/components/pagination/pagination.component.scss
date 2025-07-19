@@ -1,0 +1,264 @@
+::ng-deep{
+  /* ============================================================= Pagination */
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &:has(div:only-child) {
+    justify-content: flex-end;
+  }
+  .ngx-pagination {
+    margin-bottom: 0 !important;
+    display: flex;
+    align-items: center;
+  }
+
+  .page-size-container {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 0.8rem;
+      margin-left: 10px;
+    }
+
+    .custom-style {
+      .ng-select-container {
+        min-width: 70px !important;
+        height: unset !important;
+
+        .ng-value-container {
+          height: unset !important;
+        }
+
+      }
+    }
+
+  }
+  .custom-pagination-style {
+    width: 100%;
+    font-size: 0.7rem;
+  
+    .ngx-pagination {
+      &.disabled {
+        color: #777777 !important;
+        background-color: #fff !important;
+        border-color: #ddd !important;
+        cursor: not-allowed !important;
+      }
+  
+      .pagination-next {
+        position: relative;
+  
+        a {
+          position: relative;
+  
+          &::after {
+            content: "\F284";
+            font-family: bootstrap-icons !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 0 !important;
+            margin-right: 0.5rem;
+          }
+        }
+  
+        &.disabled {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+  
+          &::after {
+            content: "\F284";
+            font-family: bootstrap-icons !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 0 !important;
+            margin-right: 0.25rem;
+          }
+        }
+  
+      }
+  
+      .pagination-previous {
+        position: relative;
+  
+        a {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+  
+          &::before {
+            content: " \F285";
+            font-family: bootstrap-icons !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0 !important;
+            margin-left: 0.25rem;
+  
+          }
+        }
+  
+        &.disabled {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+  
+          &::before {
+            content: "\F285";
+            font-family: bootstrap-icons !important;
+  
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0 !important;
+          }
+  
+          >span {
+  
+            padding: 0 !important;
+          }
+        }
+      }
+  
+      li {
+        margin: 0 2px !important;
+  
+        align-items: center;
+        justify-content: center;
+  
+        a {
+          font-size: 11px !important;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+  
+        &.small-screen {
+          @media screen and (max-width:601px) {
+            display: inline-flex;
+          }
+        }
+  
+        &:not(.pagination-previous, .pagination-next, .small-screen) {
+          width: 32px;
+          height: 32px;
+          padding: 0;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+  
+          a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 !important;
+  
+              span {
+                  width: 100%;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  line-height: 0;
+  
+                  &.show-for-sr {
+                  display: none;
+                  }
+              }
+              &:hover {
+                  background-color: #ddd !important;
+                  cursor: pointer !important;
+              }
+          }
+        }
+  
+      }
+  
+      a,
+      a:focus {
+        text-decoration: none !important;
+        background-color: #fff !important;
+        border: 1px solid #ddd;
+        margin-left: -1px !important;
+        padding: 7px 13px !important;
+        border-radius: 50rem !important;
+        transition: var(--transition);
+      }
+  
+  
+  
+      .current {
+        background: linear-gradient(to top right, #f0f3f5, #f0f3f5) !important;
+        background: linear-gradient(to top right, #f0f3f5, #f0f3f5) !important;
+        background: -webkit-linear-gradient(to top right,
+            #f0f3f5,
+            #f0f3f5) !important;
+        // padding: 9px 15px !important;
+        color: var(--scm-green) !important;
+        border-radius: 50rem !important;
+        cursor: pointer !important;
+  
+        span {
+          line-height: 0;
+        }
+      }
+  
+      .pagination-previous,
+      .pagination-next {
+        border: 0;
+  
+        a {
+          border: 0;
+          border-color: transparent;
+  
+        }
+      }
+  
+      
+    }
+  }
+  .custom-select-style.page-size-select{
+    .ng-select-container{
+        padding: 0.65rem 1rem 0.65rem 2.5rem;
+        min-height: unset;
+        .ng-value-container{
+          padding-right: 0;
+          padding-left: 0.5rem;
+        }
+        .ng-arrow-wrapper{
+          margin-left: 0 !important;
+          padding-left: 0 !important;
+          position: absolute;
+          left: 0.8rem;
+          &:before{
+            font-size: 0.9rem;
+          }
+        }
+    }
+    .ng-dropdown-panel-items{
+      max-height: unset !important;
+    }
+    .ng-option{
+      padding: var(--paddingXs) var(--paddingSm) !important;
+    }
+  }
+}
+
+
+@media screen and (min-width:576px) and (max-width:767px) {
+    .page-size-container {
+
+      >span {
+        display: none !important;
+      }
+    }
+}
+}

@@ -39,7 +39,7 @@ export class AppSetting {
 
 
     // ==================================================== PAGINATION
-    public static pageSize = 16;
+    public static pageSize = 15;
     public quantityInPage = 'تعداد در صفحه';
     public previousLabel = 'صفحه‌ی قبل';
     public nextLabel = 'صفحه‌ی بعد';
@@ -62,7 +62,11 @@ export class AppSetting {
 
     // ==================================================== BUTTONS
     public save = 'ذخیره';
-    public cancel = 'انصراف';
+  public cancel = 'انصراف';
+  public editTooltip = 'ویرایش';
+  public viewTooltip = 'جزئیات'
+  public folderTooltip = 'پرونده';
+  public removeTooltip = 'حذف'
     public createUser = "ایجاد نام کابری";
     public inquiry = 'استعلام';
 

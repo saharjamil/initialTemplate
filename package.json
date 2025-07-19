@@ -32,6 +32,7 @@
     "ng-persian-datepicker": "^10.0.0",
     "ng2-file-upload": "^8.0.0",
     "ngx-owl-carousel-o": "^19.0.2",
+    "ngx-pagination": "^6.0.3",
     "rxjs": "~7.8.0",
     "shamsi-date-converter": "^1.0.5",
     "simplebar-angular": "^3.3.1",

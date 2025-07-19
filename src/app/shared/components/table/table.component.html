@@ -1,0 +1,40 @@
+<div class="d-flex flex-column">
+    <div class="table-responsive flex-grow-1" *ngIf="data.TotalCount">
+        <table class="custom-table-style">
+            <thead>
+                <tr>
+                    <th>ردیف</th>
+                    <th *ngFor="let col of columns">{{col.Title}}</th>
+                    <th *ngIf="hasRowActions"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="spacer"></tr>
+                <ng-container *ngFor="let item of data.List | paginate : { id: 'pager', itemsPerPage: pageSize,currentPage: pageNumber, totalItems: data.TotalCount}; let index = index; let i = index;">
+                    <tr>
+                        <td>{{(pageNumber - 1) * pageSize + (i + 1)}}</td>
+                        <td *ngFor="let col of columns">{{item[col.Key]}}</td>
+                        <td *ngIf="hasRowActions">
+                            <div class="d-flex align-items-center gap-2">
+                                <button *ngIf="hasViewBtn" placement="bottom" [ngbTooltip]="setting.viewTooltip" tooltipClass="custom-tooltip-style" class="btn btn-icon" (click)="onViewSelected(item)"><app-svg-icon [name]="'eye'" [size]="20"></app-svg-icon></button>
+                                <button *ngIf="hasFolderBtn" placement="bottom" [ngbTooltip]="setting.folderTooltip" tooltipClass="custom-tooltip-style" class="btn btn-icon" (click)="onFolderSelected(item)"><app-svg-icon [name]="'folder'" [size]="20"></app-svg-icon></button>
+                                <button *ngIf="hasEditBtn" placement="bottom" [ngbTooltip]="setting.editTooltip" tooltipClass="custom-tooltip-style" class="btn btn-icon" (click)="onEditSelected(item)"><app-svg-icon [name]="'pen2'" [size]="20"></app-svg-icon></button>
+                                <button *ngIf="hasRemoveBtn" placement="bottom" [ngbTooltip]="setting.removeTooltip" tooltipClass="custom-tooltip-style" class="btn btn-icon" (click)="onRemoveSelected(item)"><app-svg-icon [name]="'trashBinMinimalistic'" [size]="20"></app-svg-icon></button>
+                                <ng-container *ngIf="customActions">
+                                    <button *ngFor="let action of customActions" placement="bottom" [ngbTooltip]="action.type == 'iconic' ? action.title : ''" tooltipClass="custom-tooltip-style" class="btn" [ngClass]="action.type == 'iconic' ? 'btn-icon' : 'btn-sm btn-highlight-primary'"(click)="onCustomAction({data: item, action:action.action})">
+                                        <app-svg-icon [name]="action.icon" [size]="action.type == 'iconic' ? 20 : 18"></app-svg-icon>
+                                        <ng-container *ngIf="action.type == 'text'">
+                                            {{action.title}}
+                                        </ng-container>
+                                    </button>
+                                </ng-container>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="spacer"></tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+    <app-pagination [id]="'pager'" [pageNumber]="pageNumber" [pageSize]="pageSize" (onPaginationChange)="onPaginateChange($event)"></app-pagination>
+</div>

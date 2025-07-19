@@ -1,0 +1,9 @@
+<div class="pagination-container">
+    <div class="flex-grow-1" >
+        <pagination-controls class="custom-pagination-style" [id]="id" (pageChange)="pageNumberChanged($event)" [previousLabel]="isMobile ? '' : setting.previousLabel" [nextLabel]="isMobile ? '' : setting.nextLabel" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="{{ setting.currentLabel }}" [maxSize]="6" [autoHide]="true" [responsive]="true"></pagination-controls>
+    </div>
+    <div class="page-size-container">
+        <span class="d-none d-lg-block">تعداد در هر صفحه</span>
+        <ng-select class="custom-select-style page-size-select" name="pageSizesList" [items]="setting.pageSizesList" bindValue="value" bindLabel="value" placeholder="تعداد صفحات" [(ngModel)]="pageSize" [multiple]="false" [clearable]="false" [searchable]="false" (change)="pageSizeChanged()"></ng-select>
+    </div>
+</div>

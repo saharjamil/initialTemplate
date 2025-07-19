@@ -301,6 +301,26 @@ i{
       
   }
 }
+.btn-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--gray-light-100);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease 0.3s;
+
+    &:hover {
+      border-color: var(--nutral-10);
+    }
+
+    i {
+      line-height: 0;
+      font-size: 1.1rem;
+    }
+  }
+
 //======================== ButtonSizes ==================================
 
 .btn-xs {
@@ -904,11 +924,15 @@ i{
             font-size: 0.97rem;
         }
         .ng-arrow-wrapper{
+            width: unset;
             .ng-arrow{
                 display: none;
             }
             &:before{
-                content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>');
+                // content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>');
+                content: '\F282';
+                font-family: bootstrap-icons;
+                font-size: 1.1rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -939,7 +963,7 @@ i{
                 }
                 &:hover{
                     &:not(.ng-option-selected){
-                        background-color: var(--gray-light-20);
+                        background-color: var(--primaryLight);
                         color: var(--primary);
                     }
                 }
@@ -1024,8 +1048,7 @@ i{
     }
     &.ng-select-top{
         .ng-dropdown-panel,.ng-dropdown-panel-items{
-            border-top-left-radius: var(--borderRadiusMd);
-            border-top-right-radius: var(--borderRadiusMd);
+            border-radius: var(--borderRadiusMd) !important;
         }
     }
     &.selection-xs{
@@ -1040,8 +1063,7 @@ i{
                     display: none;
                 }
                 &:before{
-                    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>');
-
+                    font-size: 1rem;
                 }
             }
             .ng-value{
@@ -1068,6 +1090,11 @@ i{
                     font-size: 0.85rem;
                 }
             }
+        }
+    }
+    &.ng-select-top{
+        .ng-dropdown-panel{
+            bottom: calc(100% + 3px);
         }
     }
 
@@ -1457,25 +1484,7 @@ table.custom-table-style {
     direction: ltr;
   }
 
-  .btn-icon {
-    width: 40px;
-    height: 40px;
-    border: 1px solid transparent;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all ease 0.3s;
-
-    &:hover {
-      border-color: var(--bs-gray-300);
-    }
-
-    i {
-      line-height: 0;
-      font-size: 1.1rem;
-    }
-  }
+  
 }
 // ********** custom checkbox
 .form-checkbox-container,.form-radio-button-container{
@@ -1741,6 +1750,20 @@ table.custom-table-style {
             right: 0;
             top: calc(var(--paddingSm) + 10px);
         }
+    }
+}
+
+//Custom Tooltip Style
+ .custom-tooltip-style{
+    --bs-tooltip-bg: var(--primary);
+    --bs-tooltip-color: var(--onPrimary);
+    --bs-tooltip-border-radius: var(--borderRadiusMd);
+    --bs-tooltip-padding-y : var(--paddingXs);
+    --bs-tooltip-padding-x: var(--paddingLg);
+    .tooltip-inner{
+        font-size: 1rem;
+        font-family: var(--fontFamily);
+        font-weight: 500;
     }
 }
 

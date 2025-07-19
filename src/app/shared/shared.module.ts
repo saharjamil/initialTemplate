@@ -13,6 +13,8 @@ import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { HttpClientModule } from '@angular/common/http';
 import { BlockUIModule } from 'ng-block-ui';
 import { RouterModule } from '@angular/router';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 //Components
 import { PersianCalendarComponent } from './components/persian-calendar/persian-calendar.component';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
@@ -24,6 +26,8 @@ import { FullComponent } from './components/layout/full/full.component';
 import { ContentComponent } from './components/layout/content/content.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
 import { JalaliDatePickerComponent } from './components/jalali-date-picker/jalali-date-picker.component';
+import { TableComponent } from './components/table/table.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 //Directives
 import { ClickOutsideDirective } from './directives/click-out-side.directive';
 import { RightClickDirective } from './directives/right-click.directive';
@@ -42,7 +46,9 @@ import { EmailValidatorDirective } from './directives/email-validator.directive'
     FullComponent,
     ContentComponent,
     TextInputComponent,
-    JalaliDatePickerComponent
+    JalaliDatePickerComponent,
+    TableComponent,
+    PaginationComponent
   ],
   imports: [
     NgbModule,
@@ -58,6 +64,7 @@ import { EmailValidatorDirective } from './directives/email-validator.directive'
     BlockUIModule.forRoot({template: BlockUiTemplateComponent, message:'در حال پردازش؛ شکیبا باشید ...'}),
     NgPersianDatepickerModule,
     SimplebarAngularModule,
+    NgxPaginationModule,
     
     ClickOutsideDirective,
     RightClickDirective,
@@ -79,7 +86,8 @@ import { EmailValidatorDirective } from './directives/email-validator.directive'
     SimplebarAngularModule,
     HttpClientModule,
     BlockUIModule,
-
+    NgxPaginationModule,
+    
     ClickOutsideDirective,
     RightClickDirective,
     Ipv4ValidatorDirective,
@@ -94,7 +102,9 @@ import { EmailValidatorDirective } from './directives/email-validator.directive'
     ExploreTabComponent,
     ContextMenuComponent,
     TextInputComponent,
-    JalaliDatePickerComponent
+    JalaliDatePickerComponent,
+    TableComponent,
+    PaginationComponent
   ],
   
 })

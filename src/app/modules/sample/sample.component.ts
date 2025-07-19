@@ -8,10 +8,9 @@ import { ContextMenuItemInterface } from '../../core/interfaces/contextMenuItemI
 import { FileUploader } from 'ng2-file-upload';
 import { HelperService } from '../../shared/services/helper.service';
 import { CalendarFilterDateViewModel } from '../../shared/components/persian-calendar/calendarViewModels/CalendarFilterDateViewModel';
-import { MaskitoOptions,MaskitoPostprocessor , MaskitoPreprocessor, MaskitoElementPredicate
-  
-   } from '@maskito/core';
-import { ElementState } from '@maskito/core/src/lib/types';
+import { data } from '../../core/data/mockTableData';
+import { TableCustomActionInterface } from '../../core/interfaces/tableCustomActionInterface';
+import { TableCustomActionEventInterFace } from '../../core/interfaces/tableCustomActionEventInterface';
 const URL = "";
 @Component({
   selector: 'app-sample',
@@ -20,7 +19,7 @@ const URL = "";
   styleUrl: './sample.component.scss'
 })
 
-export class SampleComponent implements OnInit {
+export class SampleComponent {
   
   setting: AppSetting = new AppSetting();
   uploader: FileUploader = new FileUploader({url:URL});
@@ -70,7 +69,19 @@ export class SampleComponent implements OnInit {
     Date:'',
     IP: '',
   }
-  constructor(public helperService: HelperService, private cdr:ChangeDetectorRef) { }
+  mockData = data;
+  tableColumns = [
+    { Key: 'FirstName', Title: 'نام' },
+    { Key: 'LastName', Title: 'نام خانوادگی' },
+    { Key: 'Email', Title: 'ایمیل' },
+    { Key: 'Gender', Title: 'جنسیت' },
+    { Key: 'IPAddress', Title: 'آدرس IP' },
+  ]
+  tableCustomActions: Array<TableCustomActionInterface<any>> = [
+    {type: 'iconic', icon: 'multipleForwardLeft' , title: 'ارسال', action: (data:any) => this.onSend(data) }
+  ]
+   constructor(public helperService: HelperService, private cdr:ChangeDetectorRef) { }
+
    ngAfterViewInit() {
         this.cdr.detectChanges();
     }
@@ -234,5 +245,25 @@ export class SampleComponent implements OnInit {
     },1000)
   }
 
+
+  onRemoveItem(item:any) {
+    console.log(item)
+  }
+  onEditItem(item:any) {
+    console.log(item)
+  }
+  onOpenFolder(item: any) {
+    console.log(item)
+  }
+  onViewItem(item: any) {
+    console.log(item)
+  }
+  onSend(item: any) {
+    
+    console.log(item)
+  }
+  handleCustomAction(event: TableCustomActionEventInterFace<any>) {
+    event.action(event.data)
+  }
   
 }

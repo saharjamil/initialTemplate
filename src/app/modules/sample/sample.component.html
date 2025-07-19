@@ -854,6 +854,14 @@
                 </div>
             </div>
             <div class="col-12">
+                <div class="card">
+                    <div class="card-header">Table</div>
+                    <div class="card-body">
+                        <app-table [data]="mockData" [columns]="tableColumns" [customActions]="tableCustomActions" [hasRowActions]="true" [hasRemoveBtn]="true" [hasEditBtn]="true" [hasViewBtn]="true" [hasFolderBtn]="true" (onRemove)="onRemoveItem($event)" (onEdit)="onEditItem($event)" (onOpenFolder)="onOpenFolder($event)" (onView)="onViewItem($event)" (customAction)="handleCustomAction($event)"></app-table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
                 <div class="card icons">
                     <div class="card-header">Icons</div>
                     <div class="card-body">
