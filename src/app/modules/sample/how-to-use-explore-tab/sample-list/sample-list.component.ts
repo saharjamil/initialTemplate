@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { AppSetting } from '../../../../core/resources/AppSetting';
+import { AppSetting } from '../../../../core/resources/app-setting';
 import { ExploreTabsService } from '../../../../shared/services/explore-tabs.service';
-import { TabInterface } from '../../../../core/interfaces/tabInterface';
-import { SampleViewModel } from '../sampleViewModels/SampleViewModel';
+import { ITab } from '../../../../core/interfaces/tab';
+import { SampleViewModel } from '../../../../core/viewModels/sample-view-model';
 import { SampleDetailComponent } from '../sample-detail/sample-detail.component';
 
 @Component({
@@ -73,7 +73,7 @@ export class SampleListComponent {
   setting: AppSetting = new AppSetting();
   constructor(private tabsService: ExploreTabsService) { }
   onTicketSelected(ticket: SampleViewModel) {
-    const tab: TabInterface = {
+    const tab: ITab = {
       id: ticket.ID.toString(),
       title: '#' + ticket.Subject,
       componentRef: SampleDetailComponent,

@@ -1,6 +1,6 @@
 import { Component, forwardRef, Input, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgModel } from '@angular/forms';
-import { AppSetting } from '../../../core/resources/AppSetting';
+import { AppSetting } from '../../../core/resources/app-setting';
 let uniqueIdCounter = 0;
 @Component({
   selector: 'app-text-input',

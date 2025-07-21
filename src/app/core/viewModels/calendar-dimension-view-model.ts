@@ -1,4 +1,4 @@
-import { EventViewModel } from "./EventViewModel";
+import { EventViewModel } from "./event-view-model";
 
 export class CalendarDimensionViewModel {
   ID: number;

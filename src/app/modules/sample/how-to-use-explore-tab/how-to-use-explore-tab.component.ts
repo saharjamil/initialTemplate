@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AppSetting } from '../../../core/resources/AppSetting';
-import { TabInterface } from '../../../core/interfaces/tabInterface';
+import { AppSetting } from '../../../core/resources/app-setting';
+import { ITab } from '../../../core/interfaces/tab';
 import { SampleListComponent } from './sample-list/sample-list.component';
 @Component({
   selector: 'app-how-to-use-explore-tab',
@@ -10,7 +10,7 @@ import { SampleListComponent } from './sample-list/sample-list.component';
 })
 export class HowToUseExploreTabComponent {
   setting: AppSetting = new AppSetting();
-  defaultTab: TabInterface[] = [
+  defaultTab: ITab[] = [
     {
       id: 'ticketList',
       title: 'لیست',

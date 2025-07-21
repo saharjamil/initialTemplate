@@ -1,9 +1,9 @@
 import { Component, ElementRef, HostListener, Input, QueryList, ViewChild, ViewChildren, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { TabInterface } from '../../../core/interfaces/tabInterface';
+import { ITab } from '../../../core/interfaces/tab';
 import { ExploreTabsService } from '../../services/explore-tabs.service';
-import { AppSetting } from '../../../core/resources/AppSetting';
-import { expandablePanelPostionInterface } from '../../../core/interfaces/expandablePanelPositionInterface';
+import { AppSetting } from '../../../core/resources/app-setting';
+import { IExpandablePanelPostion} from '../../../core/interfaces/expandable-panel-position';
 
 @Component({
   selector: 'app-explore-tab',
@@ -14,9 +14,9 @@ import { expandablePanelPostionInterface } from '../../../core/interfaces/expand
 })
 export class ExploreTabComponent {
   @Input() key: string = ''; // Unique key for this instance
-  @Input() defaultTab!: TabInterface[];
+  @Input() defaultTab!: ITab[];
   @Input() closeAllTabsOnNavigation?: boolean = false;
-  @Input() newTab!: TabInterface;
+  @Input() newTab!: ITab;
   @Input() activeFirstTab?: boolean;
   openTabRequestsSubscription: Subscription = new Subscription();
   @ViewChild('tabContentRef', { read: ViewContainerRef }) tabContentViewContainerRef!: ViewContainerRef;
@@ -26,7 +26,7 @@ export class ExploreTabComponent {
   setting: AppSetting = new AppSetting();
   constructor(public tabsService: ExploreTabsService) {}
 
-  public tabsListPanelPosition: expandablePanelPostionInterface = { top: 0, left: 0 };
+  public tabsListPanelPosition: IExpandablePanelPostion = { top: 0, left: 0 };
   public showTabsListFlag: boolean = false;
 
   checkDevice(){
@@ -47,7 +47,7 @@ export class ExploreTabComponent {
     const currentTabs = this.tabsService.getTabs(this.key).value;
     const currentTabsID = currentTabs?.map((tab) => tab.id);
     const tabsToAdd = this.defaultTab.filter(tab => !currentTabsID.includes(tab.id));
-    const firstTab = this.defaultTab.find(tab => !tab.closable) as TabInterface;
+    const firstTab = this.defaultTab.find(tab => !tab.closable) as ITab;
     
     if (currentTabs.length > 0) {
       if (tabsToAdd.length > 0) {
@@ -84,14 +84,14 @@ export class ExploreTabComponent {
     
   }
 
-  onSelectTab(tab: TabInterface) {
+  onSelectTab(tab: ITab) {
     this.showTabsListFlag = false;
     this.tabsService.selectTab(this.key, tab, this.tabContentViewContainerRef);
     setTimeout(() => {
       this.scrollTabIntoView(tab)
     }, 100); // Timeout ensures DOM updates
   }
-  addTab(tab: TabInterface) {
+  addTab(tab: ITab) {
     this.tabsService.selectTab(this.key, tab, this.tabContentViewContainerRef);
      // Wait a tick for DOM to render the tab
   setTimeout(() => {
@@ -119,7 +119,7 @@ export class ExploreTabComponent {
     }
   }
 
-  scrollTabIntoView(tab:TabInterface) {
+  scrollTabIntoView(tab:ITab) {
     const tabs = this.tabsService.getTabs(this.key).value;
     const index = tabs.findIndex(t => t.id === tab.id);
     const tabEl = this.tabElements?.toArray()[index];

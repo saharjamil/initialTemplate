@@ -1,4 +1,4 @@
-import { CalendarDimensionViewModel } from "../../shared/components/persian-calendar/calendarViewModels/CalendarDimensionViewModel"
+import { CalendarDimensionViewModel } from "../viewModels/calendar-dimension-view-model"
 
 export class CalendarData {
     D140401: CalendarDimensionViewModel[] = [

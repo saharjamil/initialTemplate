@@ -1,5 +1,5 @@
 import { Component, forwardRef, HostListener, Input } from '@angular/core';
-import { AppSetting } from '../../../core/resources/AppSetting';
+import { AppSetting } from '../../../core/resources/app-setting';
 import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 let uniqueIdCounter = 0;
 

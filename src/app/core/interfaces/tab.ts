@@ -1,6 +1,6 @@
 import { ComponentType } from "@angular/cdk/portal";
 
-export class TabInterface{
+export class ITab{
     id: string = '';
     title: string = '';
     icon?:string;

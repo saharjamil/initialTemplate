@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ContextMenuItemInterface } from '../../../core/interfaces/contextMenuItemInterface';
-import { expandablePanelPostionInterface } from '../../../core/interfaces/expandablePanelPositionInterface';
-import { AppSetting } from '../../../core/resources/AppSetting';
+import { IContextMenuItem } from '../../../core/interfaces/context-menu-item';
+import { IExpandablePanelPostion } from '../../../core/interfaces/expandable-panel-position';
+import { AppSetting } from '../../../core/resources/app-setting';
 @Component({
   selector: 'app-context-menu',
   standalone:false,
@@ -9,8 +9,8 @@ import { AppSetting } from '../../../core/resources/AppSetting';
   styleUrls: ['./context-menu.component.scss']
 })
 export class ContextMenuComponent {
-  @Input() position: expandablePanelPostionInterface = {};
-  @Input() menuItems: ContextMenuItemInterface[] = [];
+  @Input() position: IExpandablePanelPostion = {};
+  @Input() menuItems: IContextMenuItem[] = [];
   @Output() closeMenu: EventEmitter<void> = new EventEmitter();
   setting: AppSetting = new AppSetting();
   onMenuItemClick(action: () => void) {

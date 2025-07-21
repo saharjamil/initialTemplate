@@ -1,0 +1,65 @@
+.custom-timeline{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  margin-top: var(--marginLg);
+  padding: var(--paddingMd);
+  position: relative;
+  
+  &:before{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    right: 0;
+    border-top: 1px solid var(--gray-light-100);
+  }
+  .timeline-item{
+    border: 1px solid var(--gray-light-80);
+    border-radius: var(--borderRadiusMd);
+   
+    display: flex;
+    align-items: center;
+    padding: var(--paddingSm) var(--paddingXL);
+    
+    font-size: 0.95rem;
+    position: relative;
+    background-color: #fff;
+    cursor: pointer;
+    transition: var(--transaction);
+    min-width: 90px;
+    &.vertical{
+      flex-direction: column;
+      padding: var(--paddingMd);
+       gap: var(--gapSm);
+    }
+    &.disable{
+      pointer-events: none;
+      cursor: not-allowed;
+      border-color: var(--gray-light-40);
+      .timeline-icon,.timeline-title{
+        opacity: 0.4;
+      }
+    }
+    .timeline-icon{
+      margin-left: 5px;
+      font-size: 1.1rem;
+      line-height: 0;
+    }
+    &.active{
+      background-color: var(--primaryLight);
+      color: var(--primary);
+      font-weight: 500;
+    }
+    &:hover{
+        color: var(--primary);
+    }
+    & + .timeline-item{
+      margin-right: 30px;
+    }
+  }
+
+}
+

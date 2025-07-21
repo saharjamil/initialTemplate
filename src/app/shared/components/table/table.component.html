@@ -5,15 +5,24 @@
                 <tr>
                     <th>ردیف</th>
                     <th *ngFor="let col of columns">{{col.Title}}</th>
+                    <th *ngFor="let extraCol of extraColumns">{{extraCol.title}}</th>
                     <th *ngIf="allActions.length"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="spacer"></tr>
-                <ng-container *ngFor="let item of data.List | paginate : { id: 'pager', itemsPerPage: pageSize,currentPage: pageNumber, totalItems: data.TotalCount}; let index = index; let i = index;">
+                <ng-container *ngFor="let item of data.List | paginate : { id: 'pager', itemsPerPage: pageSize,currentPage: pageNumber, totalItems: data.TotalCount}; let i = index;">
                     <tr>
                         <td>{{(pageNumber - 1) * pageSize + (i + 1)}}</td>
-                        <td *ngFor="let col of columns">{{item[col.Key]}}</td>
+                        <td *ngFor="let col of columns;">
+                            {{item[col.Key]}}
+                        </td>
+                        <td *ngFor="let extraCol of extraColumns">
+                            <app-switcher [type]="extraCol.type" [(ngModel)]="item[extraCol.key]" (ngModelChange)="onButtonAction({data: item, action:extraCol.action})" [isDisabled]="extraCol.disabled"></app-switcher>
+                        </td>
+                        <ng-container >
+
+                        </ng-container>
                         <td *ngIf="allActions.length">
                             <div class="d-flex align-items-center gap-2">
                                 <button *ngFor="let action of allActions" [ngbTooltip]="action.type == 'iconic' ? action.title : ''" tooltipClass="custom-tooltip-style" placement="bottom" triggers="hover" class="d-flex align-items-center btn" [ngClass]="['btn', action.type === 'iconic' ? 'btn-icon' : '', 'btn-' + (action.buttonColorType ? action.buttonColorType + '-' : '') + (action.type == 'text' || action.buttonColor ? action.buttonColor || 'primary' : ''), 'btn-' + (action.type == 'text' ? action.buttonSize || 'sm' : ''), 'order-' + (action.order ? action.order : '')]" (click)="onButtonAction({data: item, action:action.action})">

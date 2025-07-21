@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SampleViewModel } from '../sampleViewModels/SampleViewModel';
+import { SampleViewModel } from '../../../../core/viewModels/sample-view-model';
 
 @Component({
   selector: 'app-sample-detail',

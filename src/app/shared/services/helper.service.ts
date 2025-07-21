@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Width } from 'ngx-owl-carousel-o/lib/services/carousel.service';
 import Swal from 'sweetalert2';
-import { AppSetting } from '../../core/resources/AppSetting';
+import { AppSetting } from '../../core/resources/app-setting';
 
 @Injectable({
   providedIn: 'root',

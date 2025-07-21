@@ -15,6 +15,15 @@ import { BlockUIModule } from 'ng-block-ui';
 import { RouterModule } from '@angular/router';
 import {NgxPaginationModule} from 'ngx-pagination';
 
+//Directives
+import { ClickOutsideDirective } from './directives/click-out-side.directive';
+import { RightClickDirective } from './directives/right-click.directive';
+import { Ipv4ValidatorDirective } from './directives/ip-validator.directive';
+import { PersianLettersOnlyDirective } from './directives/persian-letters-only.directive';
+import { MaskitoDirective } from '@maskito/angular';
+import { MobileValidatorDirective } from './directives/mobile-validator.directive';
+import { EmailValidatorDirective } from './directives/email-validator.directive';
+
 //Components
 import { PersianCalendarComponent } from './components/persian-calendar/persian-calendar.component';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
@@ -28,14 +37,9 @@ import { TextInputComponent } from './components/text-input/text-input.component
 import { JalaliDatePickerComponent } from './components/jalali-date-picker/jalali-date-picker.component';
 import { TableComponent } from './components/table/table.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
-//Directives
-import { ClickOutsideDirective } from './directives/click-out-side.directive';
-import { RightClickDirective } from './directives/right-click.directive';
-import { Ipv4ValidatorDirective } from './directives/ip-validator.directive';
-import { PersianLettersOnlyDirective } from './directives/persian-letters-only.directive';
-import { MaskitoDirective } from '@maskito/angular';
-import { MobileValidatorDirective } from './directives/mobile-validator.directive';
-import { EmailValidatorDirective } from './directives/email-validator.directive';
+import { StepperComponent } from './components/stepper/stepper.component';
+import { NoDataComponent } from './components/no-data/no-data.component';
+import { SwitcherComponent } from './components/switcher/switcher.component';
 @NgModule({
   declarations: [
     PersianCalendarComponent,
@@ -48,7 +52,10 @@ import { EmailValidatorDirective } from './directives/email-validator.directive'
     TextInputComponent,
     JalaliDatePickerComponent,
     TableComponent,
-    PaginationComponent
+    PaginationComponent,
+    StepperComponent,
+    NoDataComponent,
+    SwitcherComponent
   ],
   imports: [
     NgbModule,
@@ -104,7 +111,10 @@ import { EmailValidatorDirective } from './directives/email-validator.directive'
     TextInputComponent,
     JalaliDatePickerComponent,
     TableComponent,
-    PaginationComponent
+    PaginationComponent,
+    StepperComponent,
+    NoDataComponent,
+    SwitcherComponent
   ],
   
 })

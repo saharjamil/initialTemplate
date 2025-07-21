@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { AppSetting } from '../../../core/resources/AppSetting';
+import { AppSetting } from '../../../core/resources/app-setting';
 
 @Component({
   selector: 'app-pagination',

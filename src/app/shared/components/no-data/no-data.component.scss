@@ -1,0 +1,12 @@
+.no-date-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+    padding: var(--paddingXXL);
+    font-weight: 500;
+    img{
+        max-width: 300px;
+    }
+}

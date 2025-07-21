@@ -1,14 +1,14 @@
 import { ComponentRef, Injectable, InjectionToken, Injector, ViewContainerRef } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { TabInterface } from '../../core/interfaces/tabInterface';
-import { AppSetting } from '../../core/resources/AppSetting';
+import { ITab } from '../../core/interfaces/tab';
+import { AppSetting } from '../../core/resources/app-setting';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExploreTabsService {
-  tabsStorage: Map<string, BehaviorSubject<TabInterface[]>> = new Map();
-  openTabRequests: Map<string, Subject<TabInterface>> = new Map();
+  tabsStorage: Map<string, BehaviorSubject<ITab[]>> = new Map();
+  openTabRequests: Map<string, Subject<ITab>> = new Map();
   objectContainerRefMap: Map<string, Map<number, ComponentRef<any>>> = new Map();
   tabContentRefs: Map<string, ViewContainerRef> = new Map();
   setting: AppSetting = new AppSetting();
@@ -30,9 +30,9 @@ export class ExploreTabsService {
   }
   
   // Retrieve tabs for a specific key
-  getTabs(key: string): BehaviorSubject<TabInterface[]> {
+  getTabs(key: string): BehaviorSubject<ITab[]> {
     if (!this.tabsStorage.has(key)) {
-      this.tabsStorage.set(key, new BehaviorSubject<TabInterface[]>([]));
+      this.tabsStorage.set(key, new BehaviorSubject<ITab[]>([]));
     }
     return this.tabsStorage.get(key)!;
   }
@@ -42,16 +42,16 @@ export class ExploreTabsService {
     }
   }
   // Open a tab request for a specific key
-  openTab(key: string, tab: TabInterface): void {
+  openTab(key: string, tab: ITab): void {
     if (!this.openTabRequests.has(key)) {
-      this.openTabRequests.set(key, new Subject<TabInterface>());
+      this.openTabRequests.set(key, new Subject<ITab>());
     }
     this.openTabRequests.get(key)!.next(tab);
   }
   // Get openTabRequests observable for a specific key
   getOpenTabRequests$(key: string) {
     if (!this.openTabRequests.has(key)) {
-      this.openTabRequests.set(key, new Subject<TabInterface>());
+      this.openTabRequests.set(key, new Subject<ITab>());
     }
     return this.openTabRequests.get(key)!.asObservable();
   }
@@ -62,7 +62,7 @@ export class ExploreTabsService {
     }
   }
  
-  selectTab(key: string, tab: TabInterface, viewContainerRef: ViewContainerRef) {
+  selectTab(key: string, tab: ITab, viewContainerRef: ViewContainerRef) {
     const tabsSource = this.getTabs(key);
     const currentTabs = [...tabsSource.value];  
     //Deactive all tabs

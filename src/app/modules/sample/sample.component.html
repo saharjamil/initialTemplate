@@ -773,6 +773,14 @@
                                             <label class="form-label" for="sample17">لورم ایپسوم</label>
                                         </div>
                                     </div>
+                                    <div class="d-flex align-items-center gap-2 my-3">
+                                        <app-switcher name="switcher1" [(ngModel)]='switcher1'></app-switcher>
+                                        <app-switcher [type]="'secondary'" name="switcher2" [(ngModel)]='switcher2'></app-switcher>
+                                        <app-switcher [type]="'success'" name="switcher3" [(ngModel)]='switcher3'></app-switcher>
+                                        <app-switcher [type]="'warning'" name="switcher4" [(ngModel)]='switcher4'></app-switcher>
+                                        <app-switcher [type]="'info'" name="switcher5" [(ngModel)]='switcher5'></app-switcher>
+                                        <app-switcher [type]="'error'" name="switcher6" [(ngModel)]='switcher6'></app-switcher>
+                                    </div>
                                     <button type="button" class="btn btn-highlight-primary btn-sm mb-2" (click)="fileInput.click()">
                                         <input #fileInput type="file" class="custom-file-input" type="file" ng2FileSelect [uploader]="uploader" multiple name="ticketAttaches" (onFileSelected)="onFileSelect()" [accept]="setting.acceptedUploadFileExtention"  />
                                         <app-svg-icon [name]="'paperclipRounded2'" [size]="20"></app-svg-icon>افزودن فایل / تصویر
@@ -855,10 +863,20 @@
             </div>
             <div class="col-12">
                 <div class="card">
+                    <div class="card-header">Stepper</div>
+                    <div class="card-body p-0">
+                        <app-stepper *ngIf="stepperItems.length" [stepperItems]="verticalStepperItems" [verticalItems]="true"></app-stepper>
+                        <app-stepper *ngIf="stepperItems.length" [stepperItems]="stepperItems"></app-stepper>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card">
                     <div class="card-header">Table</div>
                     <div class="card-body">
                         <div class="mb-4">
-                            <app-table [data]="mockData" [columns]="tableColumns" [mainActions]="tableMainActions" [customActions]="tableCustomActions" [pageSize]="5" (buttonAction)="handleButtonAction($event)"></app-table>
+                            <app-table [data]="mockData" [columns]="tableColumns" [extraColumns]="tableExtraColumns" [mainActions]="tableMainActions" [customActions]="tableCustomActions" [pageSize]="5" (buttonAction)="handleButtonAction($event)"></app-table>
                         </div>
                         <app-table [data]="mockData" [columns]="tableColumns" [mainActions]="secondTableMainActions" [customActions]="tableCustomActions" [pageSize]="5" (buttonAction)="handleButtonAction($event)"></app-table>
 
@@ -5944,5 +5962,11 @@
             <span class="loading"></span>
              <p class="block-message mt-4">در حال بروزرسانی؛ شکیبا باشید ...</p>
         </div>
+    </div>
+</ng-template>
+
+<ng-template #stepperTemplateRef>
+    <div class="p-5">
+        این یک TemplateRef می باشد.
     </div>
 </ng-template>

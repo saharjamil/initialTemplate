@@ -1,5 +1,5 @@
 
-export interface TableRowActionInterface<T> {
+export interface ITableActionConfig<T> {
   title?: string;
   icon?: string;
   type?: 'text' | 'iconic';

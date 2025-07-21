@@ -1,4 +1,4 @@
-export class expandablePanelPostionInterface{
+export class IExpandablePanelPostion{
     top?: number;
     bottom?: number;
     left?: number;

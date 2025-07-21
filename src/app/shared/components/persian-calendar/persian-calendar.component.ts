@@ -2,12 +2,12 @@ import { Component, ElementRef, HostListener, Input, Output, QueryList, ViewChil
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { NgForm } from '@angular/forms';
 //ViewModels
-import { CalendarDimensionViewModel } from './calendarViewModels/CalendarDimensionViewModel';
-import { CalendarFilterDateViewModel  } from './calendarViewModels/CalendarFilterDateViewModel';
-import { EventViewModel } from './calendarViewModels/EventViewModel';
+import { CalendarDimensionViewModel } from '../../../core/viewModels/calendar-dimension-view-model';
+import { CalendarFilterDateViewModel  } from '../../../core/viewModels/calendar-filter-date-view-model';
+import { EventViewModel } from '../../../core/viewModels/event-view-model';
 //Plugins
 import { gregorianToJalali } from 'shamsi-date-converter';
-import { AppSetting } from '../../../core/resources/AppSetting';
+import { AppSetting } from '../../../core/resources/app-setting';
 @Component({
   selector: 'app-persian-calendar',
   standalone:false,

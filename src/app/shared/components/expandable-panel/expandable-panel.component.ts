@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, TemplateRef } from '@angular/core';
-import { expandablePanelPostionInterface } from '../../../core/interfaces/expandablePanelPositionInterface';
+import { IExpandablePanelPostion } from '../../../core/interfaces/expandable-panel-position';
 
 @Component({
   selector: 'app-expandable-panel',
@@ -29,7 +29,7 @@ import { expandablePanelPostionInterface } from '../../../core/interfaces/expand
 })
 export class ExpandablePanelComponent {
   @Input() isOpen = false;
-  @Input() position: expandablePanelPostionInterface | null = null;
+  @Input() position: IExpandablePanelPostion | null = null;
   @Input() content!: TemplateRef<any>;
   @Input() borderColor?: string;
   @Input() alignFromBottom?: boolean = false;

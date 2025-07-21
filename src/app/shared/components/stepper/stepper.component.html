@@ -1,0 +1,19 @@
+<!-- <div class="stepper-title">
+    <div class="item" *ngFor="let item of stepperItem"><i class="bi bi-person"></i> <span class="title">نام کاربر:</span> <span class="value">{{user.FullName}}</span></div>
+    <div class="item"><i class="bi bi-person-vcard"></i> <span class="title">کدملی / نام کاربری:</span> <span class="value">{{user.NID}}</span></div>
+    <div class="item"><i class="bi bi-person-gear"></i> <span class="title">نوع کاربری:</span> <span class="value">{{user.UserTypeTitle}}</span></div>
+</div> -->
+<div class="custom-timeline">
+    <ng-container *ngFor="let item of stepperItems">
+        <div class="timeline-item " [class.vertical]="verticalItems" [class.active]="item.IsActive" (click)="openStepperContent(item)">
+            <span class="timeline-icon"><app-svg-icon [name]="item.Icon" [size]="20"></app-svg-icon></span>
+            <span class="timeline-title">{{item.Title}}</span>
+        </div>
+    </ng-container>
+</div>
+<div class="stepper-content">
+    <app-no-data *ngIf="noData"></app-no-data>
+    <ng-container *ngTemplateOutlet="container"></ng-container>
+</div>
+<ng-template #container>
+</ng-template>

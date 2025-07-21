@@ -1,6 +1,6 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { AppSetting } from '../../../core/resources/AppSetting';
+import { AppSetting } from '../../../core/resources/app-setting';
 
 @Component({
   selector: 'app-cellphone-input',
