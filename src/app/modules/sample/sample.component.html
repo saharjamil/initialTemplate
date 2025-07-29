@@ -2,6 +2,18 @@
 <div class="py-3">
     <div class="container-fluid">
         <div class="row g-2">
+            <app-card [actionMenuItems]="cardActionItems" [cardTitle]="'لورم ایپسوم'" (data)='1' (onSearch)="onSearch($event)" >
+                <app-table [data]="mockData" [columns]="tableColumns" [mainActions]="secondTableMainActions" [pageSize]="5" (buttonAction)="handleButtonAction($event)"></app-table>
+            </app-card>
+            <div class="col-12">
+                <app-how-to-use-explore-tab></app-how-to-use-explore-tab>
+                <!-- <div class="card">
+                    <div class="card-header">Explore New Tab</div>
+                    <div class="card-body">
+                    </div>
+                </div> -->
+            </div>
+            
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">Buttons</div>
@@ -597,14 +609,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">Explore New Tab</div>
-                    <div class="card-body">
-                        <app-how-to-use-explore-tab></app-how-to-use-explore-tab>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header">Form</div>
@@ -861,6 +866,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">Stepper</div>
@@ -878,11 +884,12 @@
                         <div class="mb-4">
                             <app-table [data]="mockData" [columns]="tableColumns" [extraColumns]="tableExtraColumns" [mainActions]="tableMainActions" [customActions]="tableCustomActions" [pageSize]="5" (buttonAction)="handleButtonAction($event)"></app-table>
                         </div>
-                        <app-table [data]="mockData" [columns]="tableColumns" [mainActions]="secondTableMainActions" [customActions]="tableCustomActions" [pageSize]="5" (buttonAction)="handleButtonAction($event)"></app-table>
+                        <app-table [data]="mockData" [columns]="tableColumns" [mainActions]="secondTableMainActions" [pageSize]="5" (buttonAction)="handleButtonAction($event)"></app-table>
 
                     </div>
                 </div>
             </div>
+            
             <div class="col-12">
                 <div class="card icons">
                     <div class="card-header">Icons</div>
@@ -5942,11 +5949,19 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">Bootstrap Icons</div>
                     <div class="card-body">جهت مشاهده آیکن ها و نحوه استفاده از آیکن های بوت استرپ به سایت <a href="https://icons.getbootstrap.com/" target="_blank">بوت استرپ</a> مراجعه نمایید.</div>
                 </div>
+            </div>
+            <div class="col-12">
+                <owl-carousel-o [options]="customOptions">
+                    <ng-template carouselSlide let-owlItem *ngFor="let item of [].constructor(3); let i= index">
+                        <div class="slider-container" [@activeSlide]="owlItem.isCentered ? 'active' : 'inActive'">Slider - {{i + 1}}</div>
+                    </ng-template>  
+                </owl-carousel-o>
             </div>
         </div>
     </div>
@@ -5969,4 +5984,14 @@
     <div class="p-5">
         این یک TemplateRef می باشد.
     </div>
+</ng-template>
+
+<ng-template #slider1>
+    <div>Slider1</div>
+</ng-template>
+<ng-template #slider2>
+    <div>Slider2</div>
+</ng-template>
+<ng-template #slider3>
+    <div>Slider3</div>
 </ng-template>

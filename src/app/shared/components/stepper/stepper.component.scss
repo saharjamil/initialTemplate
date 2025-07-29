@@ -44,7 +44,7 @@
       }
     }
     .timeline-icon{
-      margin-left: 5px;
+      margin-left: var(--marginXs);
       font-size: 1.1rem;
       line-height: 0;
     }
@@ -57,7 +57,7 @@
         color: var(--primary);
     }
     & + .timeline-item{
-      margin-right: 30px;
+      margin-right: var(--marginLg);
     }
   }
 

@@ -1,6 +1,6 @@
 import { ComponentRef, Injectable, InjectionToken, Injector, ViewContainerRef } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { ITab } from '../../core/interfaces/tab';
+import { ITab } from '../../core/interfaces/tab.interface';
 import { AppSetting } from '../../core/resources/app-setting';
 
 @Injectable({

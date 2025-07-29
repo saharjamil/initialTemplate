@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Width } from 'ngx-owl-carousel-o/lib/services/carousel.service';
 import Swal from 'sweetalert2';
 import { AppSetting } from '../../core/resources/app-setting';
+import { IExpandablePanelPostion } from '../../core/interfaces/expandable-panel-position.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -78,6 +79,29 @@ export class HelperService{
     swalInstance.fire();
   }
 
+
+  calcMouseEventPosition(event:MouseEvent):DOMRect {
+    event.preventDefault(); // Prevent default right-click menu
+    const element = event.target as HTMLElement;
+    const elementRect = element.getBoundingClientRect();
+    return elementRect
+  }
+  calcRightExpandablePanelPosition(domRect:DOMRect):IExpandablePanelPostion {
+    const expandablePanelPosition: IExpandablePanelPostion = {top:domRect.top , left : domRect.left + domRect.width + 5};
+    return expandablePanelPosition
+  }
+  calcLeftExpandablePanelPosition(domRect: DOMRect): IExpandablePanelPostion {
+    const expandablePanelPosition: IExpandablePanelPostion = {top:domRect.top , right : window.innerWidth - domRect.right + domRect.width + 5};
+    return expandablePanelPosition
+  }
+  calcBottomExpandablePanelPosition(domRect: DOMRect): IExpandablePanelPostion {
+    const expandablePanelPosition: IExpandablePanelPostion = {top:domRect.top + domRect.height + 5 , right :  window.innerWidth - domRect.right};
+    return expandablePanelPosition
+  }
+  calcTopExpandablePanelPosition(domRect: DOMRect): IExpandablePanelPostion {
+    const expandablePanelPosition: IExpandablePanelPostion = {bottom:window.innerHeight - domRect.top + 5, right :  window.innerWidth - domRect.right};
+    return expandablePanelPosition
+  }
 }
 
 

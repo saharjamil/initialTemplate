@@ -25,11 +25,11 @@
                         </ng-container>
                         <td *ngIf="allActions.length">
                             <div class="d-flex align-items-center gap-2">
-                                <button *ngFor="let action of allActions" [ngbTooltip]="action.type == 'iconic' ? action.title : ''" tooltipClass="custom-tooltip-style" placement="bottom" triggers="hover" class="d-flex align-items-center btn" [ngClass]="['btn', action.type === 'iconic' ? 'btn-icon' : '', 'btn-' + (action.buttonColorType ? action.buttonColorType + '-' : '') + (action.type == 'text' || action.buttonColor ? action.buttonColor || 'primary' : ''), 'btn-' + (action.type == 'text' ? action.buttonSize || 'sm' : ''), 'order-' + (action.order ? action.order : '')]" (click)="onButtonAction({data: item, action:action.action})">
-                                        <span *ngIf="action.icon" [ngClass]="{'order-2': action.leftIcon,}">
+                                <button [class.flex-row-reverse]="action.leftIcon" *ngFor="let action of allActions" [ngbTooltip]="action.type == 'iconic' ? action.title : ''" tooltipClass="custom-tooltip-style" placement="bottom" triggers="hover" class="d-flex align-items-center btn" [ngClass]="['btn', action.type === 'iconic' ? 'btn-icon' : '', 'btn-' + (action.buttonColorType ? action.buttonColorType + '-' : '') + (action.type == 'text' || action.buttonColor ? action.buttonColor || 'primary' : ''), 'btn-' + (action.type == 'text' ? action.buttonSize || 'sm' : ''), 'order-' + (action.order ? action.order : '')]" (click)="onButtonAction({data: item, action:action.action})">
+                                        <span *ngIf="action.icon">
                                             <app-svg-icon  [name]="action.icon" [size]="action.type == 'iconic' ? 20 : 18"></app-svg-icon>
                                         </span>
-                                        <span *ngIf="action.type == 'text'" [ngClass]="{'order-2': !action.leftIcon,}">
+                                        <span *ngIf="action.type == 'text'">
                                             {{action.title}}
                                         </span>
                                 </button>

@@ -38,8 +38,11 @@
               "node_modules/bootstrap/dist/css/bootstrap.rtl.min.css",
               "@ng-select/ng-select/themes/default.theme.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
               "src/assets/scss/my-style.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/animate.css/animate.css"
             ],
             "scripts": []
           },

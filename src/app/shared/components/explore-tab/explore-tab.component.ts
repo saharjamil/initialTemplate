@@ -1,9 +1,9 @@
 import { Component, ElementRef, HostListener, Input, QueryList, ViewChild, ViewChildren, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ITab } from '../../../core/interfaces/tab';
+import { ITab } from '../../../core/interfaces/tab.interface';
 import { ExploreTabsService } from '../../services/explore-tabs.service';
 import { AppSetting } from '../../../core/resources/app-setting';
-import { IExpandablePanelPostion} from '../../../core/interfaces/expandable-panel-position';
+import { IExpandablePanelPostion} from '../../../core/interfaces/expandable-panel-position.interface';
 
 @Component({
   selector: 'app-explore-tab',

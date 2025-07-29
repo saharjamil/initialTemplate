@@ -1,23 +1,28 @@
-import { ChangeDetectorRef, Component, EventEmitter, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, HostListener, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { AppSetting } from '../../core/resources/app-setting';
 import { CalendarData } from '../../core/data/calendar-data';
-import { IExpandablePanelPostion } from '../../core/interfaces/expandable-panel-position';
-import { IContextMenuItem } from '../../core/interfaces/context-menu-item';
+import { IExpandablePanelPostion } from '../../core/interfaces/expandable-panel-position.interface';
+import { IContextMenuItem } from '../../core/interfaces/context-menu-item.interface';
 import { FileUploader } from 'ng2-file-upload';
 import { HelperService } from '../../shared/services/helper.service';
 import { CalendarFilterDateViewModel } from '../../core/viewModels/calendar-filter-date-view-model';
 import { data } from '../../core/data/mock-table-data';
-import { ITableActionConfig } from '../../core/interfaces/table-action-config';
-import { ITableActionEvent } from '../../core/interfaces/table-action-event';
+import { ITableActionConfig } from '../../core/interfaces/table-action-config.interface';
+import { ITableActionEvent } from '../../core/interfaces/table-action-event.interface';
 import {TableMainActionsConfig} from '../../core/types/table-main-actions-config'
 import { ResultViewModel } from '../../core/viewModels/result-view-model';
 import { StepperViewModel } from '../../core/viewModels/stepper-view-model';
 import { PersianCalendarComponent } from '../../shared/components/persian-calendar/persian-calendar.component';
 import { SampleListComponent } from './how-to-use-explore-tab/sample-list/sample-list.component';
 import { SampleDetailComponent } from './how-to-use-explore-tab/sample-detail/sample-detail.component';
-import { ITableExtraColumns } from '../../core/interfaces/table-extra-columns';
+import { ITableExtraColumns } from '../../core/interfaces/table-extra-columns.interface';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ICarouselItem } from '../../core/interfaces/carousel-item.interface';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { ICardActionConfig } from '../../core/interfaces/card-action-config';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 const URL = "";
 export class mockDataViewModel{
   ID: number;
@@ -44,7 +49,23 @@ export class mockDataViewModel{
   selector: 'app-sample',
   standalone:false,
   templateUrl: './sample.component.html',
-  styleUrl: './sample.component.scss'
+  styleUrl: './sample.component.scss',
+  animations: [
+    trigger('activeSlide', [
+      state('active', style({
+        transform: 'scale(1.2)',
+      })),
+      state('inActive', style({
+        transform: 'scale(0.8)',
+      })),
+      transition('active => inActive', [
+        animate('0.3s')
+      ]),
+      transition('inActive => active', [
+        animate('0.3s')
+      ])
+    ])
+  ]
 })
 
 export class SampleComponent {
@@ -55,7 +76,8 @@ export class SampleComponent {
   stepperItems: StepperViewModel[] = [];
    verticalStepperItems: StepperViewModel[] = [];
   @ViewChild('stepperTemplateRef', {static:false}) stepperTemplateRef!: TemplateRef<any>;
-  constructor(public helperService: HelperService, private cdr: ChangeDetectorRef) { }
+  constructor(public helperService: HelperService, private cdr: ChangeDetectorRef, private modalService:NgbModal) { }
+
   ngOnInit(): void { }
   ngAfterViewInit() {
     this.verticalStepperItems= [
@@ -152,40 +174,39 @@ export class SampleComponent {
   fourthContextMenuPosition: IExpandablePanelPostion = {}
   fourthContextMenuIsShow: boolean = false;
 
+    @HostListener('document:scroll', ['$event'])
+    onScroll(event: Event) {
+       console.log('Scrolled!', window.scrollY);
+  this.closeAllContextMenus();
+}
+  closeAllContextMenus() {
+    this.closeFirstContextMenu();
+    this.closeSecondContextMenu();
+    this.closeThirdContextMenu();
+    this.closeFourthContextMenu();
+  }
   onFirstContextMenuRightClick(event: MouseEvent) {
     this.closeAllContextMenus();
-    event.preventDefault(); // Prevent default right-click menu
-    const element = event.target as HTMLElement;
-    const elementRect = element.getBoundingClientRect();
-    this.firstContextMenuPosition.top = elementRect.top;
-    this.firstContextMenuPosition.left = elementRect.left + elementRect.width + 5;
+    const domRect: DOMRect = this.helperService.calcMouseEventPosition(event);
+    this.firstContextMenuPosition = this.helperService.calcRightExpandablePanelPosition(domRect);
     this.firstContextMenuIsShow = true;
   }
   onSecondContextMenuRightClick(event: MouseEvent) {
     this.closeAllContextMenus();
-    event.preventDefault(); // Prevent default right-click menu
-    const element = event.target as HTMLElement;
-    const elementRect = element.getBoundingClientRect();
-    this.secondContextMenuPosition.top = elementRect.top;
-    this.secondContextMenuPosition.right = window.innerWidth - elementRect.right + elementRect.width - 12
+    const domRect: DOMRect = this.helperService.calcMouseEventPosition(event);
+    this.secondContextMenuPosition = this.helperService.calcLeftExpandablePanelPosition(domRect);
     this.secondContextMenuIsShow = true;
   }
   onThirdContextMenuRightClick(event: MouseEvent) {
     this.closeAllContextMenus();
-    event.preventDefault(); // Prevent default right-click menu
-    const element = event.target as HTMLElement;
-    const elementRect = element.getBoundingClientRect();
-    this.thirdContextMenuPosition.top = elementRect.top + elementRect.height + 5;
-    this.thirdContextMenuPosition.right = window.innerWidth - elementRect.right - 16;
+    const domRect: DOMRect = this.helperService.calcMouseEventPosition(event);
+    this.thirdContextMenuPosition = this.helperService.calcBottomExpandablePanelPosition(domRect)
     this.thirdContextMenuIsShow = true;
   }
   onFourthContextMenuRightClick(event: MouseEvent) {
     this.closeAllContextMenus();
-    event.preventDefault(); // Prevent default right-click menu
-    const element = event.target as HTMLElement;
-    const elementRect = element.getBoundingClientRect();
-    this.fourthContextMenuPosition.bottom = window.innerHeight - elementRect.top + 5;
-    this.fourthContextMenuPosition.left = elementRect.left;
+    const domRect: DOMRect = this.helperService.calcMouseEventPosition(event);
+    this.fourthContextMenuPosition = this.helperService.calcTopExpandablePanelPosition(domRect);
     this.fourthContextMenuIsShow = true;
   }
   closeFirstContextMenu() {
@@ -201,12 +222,7 @@ export class SampleComponent {
     this.fourthContextMenuIsShow = false;
   }
 
-  closeAllContextMenus() {
-    this.closeFirstContextMenu();
-    this.closeSecondContextMenu();
-    this.closeThirdContextMenu();
-    this.closeFourthContextMenu();
-  }
+
 
   //Relate To Form && Form Validation
   usernameNgModel: string = '';
@@ -299,8 +315,8 @@ export class SampleComponent {
   tableMainActions: TableMainActionsConfig<mockDataViewModel> = {
     edit: {
       buttonColor: 'primary',
-      buttonColorType: 'highlight',
-      type: 'iconic',
+      buttonColorType: 'outline',
+      type: 'text',
       action: (item: mockDataViewModel) => this.onEditItem(item),
       order: 2,
     },
@@ -315,11 +331,12 @@ export class SampleComponent {
       action: (item: mockDataViewModel) => this.onOpenFolder(item),
       buttonColor: 'warning',
       buttonColorType: 'outline',
+      type: 'text',
       order: 3,
     }
   }
   tableCustomActions: Array<ITableActionConfig<mockDataViewModel>> = [
-    {type: 'iconic', icon: 'multipleForwardLeft', title: 'ارسال', order: 4, action: (data:any) => this.onSend(data) }
+    {type: 'text', buttonColorType:'outline', icon: 'multipleForwardLeft', title: 'ارسال', order: 4, action: (data:any) => this.onSend(data) }
   ]
   secondTableMainActions: TableMainActionsConfig<mockDataViewModel> = {
     edit: {
@@ -359,7 +376,42 @@ export class SampleComponent {
     event.action(event.data)
   }
 
+
+  //Related To Carousel
+  customOptions: OwlOptions = {
+    items: 1,
+    rtl: true,
+    nav: true,
+    navText: ['<i class="bi bi-chevron-right"></i>', '<i class="bi bi-chevron-left"></i>'],
+    // animateOut: 'animate__animated animate__zoomIn animate__slower', // read more in https://animate.style/ site
+    margin: 10,
+    stagePadding: 300,
+    loop: true,
+    center: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    mouseDrag: true,
+    freeDrag: true,
+    navSpeed: 800,
+  }
+
+  cardActionItems: ICardActionConfig<any>[] = [
+    { title: 'افزودن رکورد', icon: 'addCircle', type:'text', buttonColor:'primary', buttonColorType:'outline', buttonSize:'sm' , action: () => { this.onOpenModal() } },
+    { title: 'خروجی اکسل', icon: 'fileDownload', type:'iconic', buttonColor:'primary', buttonColorType:'outline', buttonSize:'sm', action: () => { this.fireErrorToast() } },
+    { title: 'بروزرسانی' , icon: 'refresh' , type:'iconic', buttonColor:'primary', buttonColorType:'outline', buttonSize:'sm', action: () => { this.fireSuccessToast() }}
+  ]
+
+  onSearch(value: string) {
+    console.log('value',value)
+  }
+
   
+  onOpenModal() {
+    this.modalService.open(this.stepperTemplateRef, {
+      size: 'lg',
+      centered:true,
+    })
+  }
   
   
 }

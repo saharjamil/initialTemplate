@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, TemplateRef } from '@angular/core';
-import { IExpandablePanelPostion } from '../../../core/interfaces/expandable-panel-position';
+import { IExpandablePanelPostion } from '../../../core/interfaces/expandable-panel-position.interface';
 
 @Component({
   selector: 'app-expandable-panel',
@@ -12,7 +12,6 @@ import { IExpandablePanelPostion } from '../../../core/interfaces/expandable-pan
       state('void', style({
         height: '0px',
         opacity: 0,
-        overflow: 'hidden'
       })),
       state('*', style({
         height: '*',

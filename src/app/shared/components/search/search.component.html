@@ -1,0 +1,6 @@
+<div class="search-box-container" [class.visible]="searchIsOpen"  >
+    <input (blur)="!value ? searchIsOpen = false : ''" #searchInput name="search" type="search" class="form-control" [placeholder]='searchPlaceholder' [(ngModel)]="value" (search)="onSearchSelected($event)" (keydown.enter)="onSearchSelected($event)" />
+    <div class="button-container" role="button" (click)="onSearchSelected($event)">
+        <app-svg-icon [name]="'minimalisticMagnifer'" ></app-svg-icon>
+    </div> 
+</div>

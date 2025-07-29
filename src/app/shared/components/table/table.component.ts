@@ -1,10 +1,10 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { AppSetting } from '../../../core/resources/app-setting';
 import { ResultViewModel } from '../../../core/viewModels/result-view-model';
-import { ITableActionConfig } from '../../../core/interfaces/table-action-config';
-import { ITableActionEvent } from '../../../core/interfaces/table-action-event';
+import { ITableActionConfig } from '../../../core/interfaces/table-action-config.interface';
+import { ITableActionEvent } from '../../../core/interfaces/table-action-event.interface';
 import { TableMainActionsConfig } from '../../../core/types/table-main-actions-config';
-import { ITableExtraColumns } from '../../../core/interfaces/table-extra-columns';
+import { ITableExtraColumns } from '../../../core/interfaces/table-extra-columns.interface';
 @Component({
   selector: 'app-table',
   standalone: false,

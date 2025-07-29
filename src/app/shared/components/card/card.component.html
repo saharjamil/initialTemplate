@@ -1,0 +1,37 @@
+<div class="card">
+    <div class="card-header">
+        <div class="d-flex align-items-center justify-content-between">
+            <div><span class="page-number" *ngIf="showPageNumber">52</span>{{cardTitle}}</div>
+            <div class="d-flex align-items-center">
+                
+                <app-search (onSearch)="onSearchSelected($event)"></app-search>
+                <div class="action-buttons-container" *ngIf="actionMenuType == 'button'">
+                    <button [class.flex-row-reverse]="action.leftIcon" *ngFor="let action of actionMenuItems" [ngbTooltip]="action.type == 'iconic' ? action.title : ''" tooltipClass="custom-tooltip-style" placement="bottom" triggers="hover" class="d-flex align-items-center btn" [ngClass]="['btn', action.type === 'iconic' ? 'btn-icon' : '', 'btn-' + (action.buttonColorType ? action.buttonColorType + '-' : '') + (action.type == 'text' || action.buttonColor ? action.buttonColor || 'primary' : ''), 'btn-' + (action.type == 'text' ? action.buttonSize || 'sm' : ''), 'order-' + (action.order ? action.order : '')]" (click)="action.action()">
+                            <span *ngIf="action.icon">
+                                <app-svg-icon  [name]="action.icon" [size]="action.type == 'iconic' || action.buttonSize == 'xs' || action.buttonSize == 'sm' ? 20 :  24"></app-svg-icon>
+                            </span>
+                            <span *ngIf="action.type == 'text'">
+                                {{action.title}}
+                            </span>
+                    </button>
+                </div>
+                <div role="button" #actionMenuTrigger (click)="onShowMenu($event)" style="transform: rotate(90deg);"  *ngIf="actionMenuType == 'expandable'">
+                    <app-svg-icon [name]="'menuDots'" style="pointer-events: none;"></app-svg-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        
+        <ng-content></ng-content>
+    </div>
+</div>
+
+<app-expandable-panel *ngIf="showMenu" [content]="actionsTemplate" [borderColor]="actionMenuBorderColor" [position]="actionMenuPosition" [excludeElement]="actionMenuTrigger.nativeElement" ClickOutside  (clickOutside)="onCloseMenu()"></app-expandable-panel>
+<ng-template #actionsTemplate>
+    <div class="action-menu">
+        <ul>
+            <li *ngFor="let item of actionMenuItems" (click)="item.action()"><app-svg-icon *ngIf="item.icon" [name]="item.icon" [size]="20"></app-svg-icon>{{item.title}}</li>
+        </ul>
+    </div>
+</ng-template>

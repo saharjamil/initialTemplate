@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IContextMenuItem } from '../../../core/interfaces/context-menu-item';
-import { IExpandablePanelPostion } from '../../../core/interfaces/expandable-panel-position';
+import { IContextMenuItem } from '../../../core/interfaces/context-menu-item.interface';
+import { IExpandablePanelPostion } from '../../../core/interfaces/expandable-panel-position.interface';
 import { AppSetting } from '../../../core/resources/app-setting';
 @Component({
   selector: 'app-context-menu',

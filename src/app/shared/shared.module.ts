@@ -13,7 +13,7 @@ import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { HttpClientModule } from '@angular/common/http';
 import { BlockUIModule } from 'ng-block-ui';
 import { RouterModule } from '@angular/router';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 //Directives
 import { ClickOutsideDirective } from './directives/click-out-side.directive';
@@ -40,6 +40,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { StepperComponent } from './components/stepper/stepper.component';
 import { NoDataComponent } from './components/no-data/no-data.component';
 import { SwitcherComponent } from './components/switcher/switcher.component';
+import { CardComponent } from './components/card/card.component';
+import { SearchComponent } from './components/search/search.component';
 @NgModule({
   declarations: [
     PersianCalendarComponent,
@@ -55,7 +57,9 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
     PaginationComponent,
     StepperComponent,
     NoDataComponent,
-    SwitcherComponent
+    SwitcherComponent,
+    CardComponent,
+    SearchComponent
   ],
   imports: [
     NgbModule,
@@ -114,7 +118,9 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
     PaginationComponent,
     StepperComponent,
     NoDataComponent,
-    SwitcherComponent
+    SwitcherComponent,
+    CardComponent,
+    SearchComponent
   ],
   
 })
